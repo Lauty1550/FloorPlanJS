@@ -1,0 +1,17 @@
+.titulo-page {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Estilo para el nombre de la organización */
+.titulo-azul {
+  color: #007bff;
+  font-weight: 700; /* Texto más grueso */
+  text-transform: capitalize; /* Primer letra de cada palabra en mayúsculas */
+}

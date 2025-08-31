@@ -1,0 +1,42 @@
+.boton-accion {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1px;
+  margin-left: 10px; /* Margen a la izquierda */
+  margin-right: 10px; /* Margen a la derecha */
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.boton-accion:hover {
+  transform: scale(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.boton-accion:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.boton-accion:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+.boton-principal {
+  color: black;
+}
+
+.boton-editar {
+  color: #007bff;
+}
+
+.boton-eliminar {
+  color: rgb(206, 38, 38);
+}

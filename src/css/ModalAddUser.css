@@ -1,0 +1,50 @@
+.modal-organizacion-users {
+  --bs-modal-width: 700px;
+  border-collapse: collapse;
+  overflow: auto;
+}
+
+.table-users {
+  width: 100%;
+}
+
+.btn-user-org {
+  font-size: 2rem;
+  padding: 1px;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-user-org:hover {
+  transform: translateY(-2px);
+  transform: scale(1.15);
+}
+
+.btn-user-org:active {
+  transform: translateY(1px);
+}
+
+.btn-add-user-org {
+  color: rgb(24, 24, 161);
+}
+
+.btn-add-user-org:hover {
+  color: rgb(13, 13, 99);
+}
+
+.btn-delete-user-org {
+  color: rgb(168, 22, 12);
+}
+
+.btn-delete-user-org:hover {
+  color: rgb(117, 23, 16);
+}
+
+.btn-lock-user-org {
+  color: rgb(48, 47, 46);
+}
+
+.btn-lock-user-org:hover {
+  color: rgb(32, 32, 31);
+}

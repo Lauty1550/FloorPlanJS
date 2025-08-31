@@ -1,0 +1,55 @@
+.btn-add-proyecto {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px; /* Esquinas redondeadas */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  min-width: fit-content;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.btn-add-proyecto:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.btn-add-proyecto:focus {
+  outline: none; /* Quita el borde predeterminado */
+  box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5);
+  background-color: #218838;
+}
+
+.btn-add-proyecto:active {
+  background-color: #0c471a; /* Fondo más oscuro al presionar */
+  transform: translateY(1px); /* Efecto de pulsación */
+}
+
+.blue {
+  background-color: rgb(61, 152, 182);
+}
+
+.blue:hover {
+  background-color: rgb(46, 108, 128);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.blue:active {
+  background-color: rgb(46, 108, 128);
+  transform: translateY(1px);
+}
+
+.blue:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.5);
+  background-color: rgb(22, 51, 61);
+}

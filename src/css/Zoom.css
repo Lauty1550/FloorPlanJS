@@ -1,0 +1,39 @@
+.zoom-controls-fullScreen {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.zoom-controls {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+  padding: 10px;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.zoom-controls-fullScreen button,
+.zoom-controls button {
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+  width: 70px;
+}
+
+.zoom-controls button:hover,
+.zoom-controls-fullScreen button:hover {
+  transform: scale(1.1);
+  transform: translateY(-2px);
+}
+
+.zoom-controls button:active,
+.zoom-controls-fullScreen button:active {
+  transform: translateY(1px);
+}
