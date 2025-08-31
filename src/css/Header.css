@@ -1,0 +1,28 @@
+header.header {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+}
+
+header .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff !important; /* Usa !important si otros estilos están sobrescribiendo este */
+}
+
+header .navbar-nav .nav-link {
+  color: #343a40 !important;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
+header .navbar-nav .nav-link:hover {
+  color: #007bff !important;
+}
+
+header .navbar-toggler {
+  border: none !important;
+}
+
+header .navbar-toggler-icon {
+  color: #007bff !important;
+}

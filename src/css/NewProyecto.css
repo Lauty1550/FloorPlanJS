@@ -1,0 +1,17 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px; /* Espaciado interno */
+}
+
+.card {
+  border: 1px solid black; /* Borde del formulario*/
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra  */
+}
+
+.card-header {
+  background-color: #f8f9fa; /* Fondo del header */
+  border-bottom: 1px solid #ced4da; /* Línea inferior del header */
+  text-align: center;
+}

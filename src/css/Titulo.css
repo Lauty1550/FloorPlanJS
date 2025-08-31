@@ -1,0 +1,9 @@
+/* Card.css */
+
+.titulo {
+  font-family: "Arial", sans-serif;
+  font-size: 3rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 50px; /* Espacio debajo del título */
+}

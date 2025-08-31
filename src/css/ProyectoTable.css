@@ -1,0 +1,17 @@
+.table {
+  width: 80%;
+  margin: auto;
+  border-spacing: 0;
+  border-color: black;
+}
+.table th {
+  background-color: gray; /* Color de fondo para el encabezado */
+  color: white; /* Color de texto para el encabezado */
+  border: 1px solid black;
+  text-align: center;
+}
+
+.table td {
+  background-color: white;
+  border: 1px solid black;
+}

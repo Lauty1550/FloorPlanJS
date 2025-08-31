@@ -1,0 +1,61 @@
+/* styles.css */
+
+.card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s; /* Transición suave para efectos de hover */
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Elevar la tarjeta al pasar el ratón */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:focus {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card:active {
+  transform: translateY(0px);
+}
+
+.card-img-top {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-body-proyecto {
+  background-color: rgba(0, 0, 0, 0.062);
+}
+
+.preview-image {
+  border-radius: 5px;
+  max-height: 200px;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
+.preview-pdf {
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  object-fit: cover;
+}

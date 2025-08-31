@@ -1,0 +1,62 @@
+.margen-derecha {
+  margin-left: auto;
+  height: 50px;
+  width: 50px;
+  margin-right: 0px;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.center-buttons {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.derecha {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  transform: scale(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cancel-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cancel-button:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+  pointer-events: none;
+}
