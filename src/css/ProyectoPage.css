@@ -1,3 +1,12 @@
 .hidden {
-  display: none; /* Oculta el contenido */
+  display: none;
+}
+
+.no-organization {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
 }

@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import NotFound from "./pages/NotFound";
 import ProyectoPage from "./pages/Proyectos";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { ProyectoProvider } from "./context/ProyectoProvider";
 
 export default function App() {
   return (
@@ -28,7 +29,13 @@ export default function App() {
 
           <Route
             path="/proyectos"
-            element={<ProtectedRoute component={ProyectoPage} />}
+            element={
+              <ProtectedRoute>
+                <ProyectoProvider>
+                  <ProyectoPage />
+                </ProyectoProvider>
+              </ProtectedRoute>
+            }
           />
 
           {/*
