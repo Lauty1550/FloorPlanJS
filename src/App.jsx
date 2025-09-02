@@ -13,6 +13,8 @@ import NotFound from "./pages/NotFound";
 import ProyectoPage from "./pages/Proyectos";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ProyectoProvider } from "./context/ProyectoProvider";
+import Usuarios from "./pages/Usuarios";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 
 export default function App() {
   return (
@@ -38,11 +40,17 @@ export default function App() {
             }
           />
 
-          {/*
           <Route
             path="/usuarios"
-            element={<ProtectedAdminRoute element={Usuarios} />}
+            element={
+              <ProtectedAdminRoute>
+                <Usuarios />
+              </ProtectedAdminRoute>
+            }
           />
+
+          {/*
+         
           <Route
             path="/organizaciones"
             element={<ProtectedAdminRoute element={OrganizacionesPage} />}

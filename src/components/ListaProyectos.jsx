@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/ProyectoTable.css";
 import "../css/Modal.css";
 import "../css/BotonAgregarProyecto.css";

@@ -47,7 +47,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
-        {isAdmin(isAuthenticated, user) && (
+        {isAdmin({ isAuthenticated, user }) && (
           <>
             <div className="col-md-6 mb-3">
               <Link to="/usuarios" className="card">

@@ -17,12 +17,14 @@ export default function useProyectos() {
   useEffect(() => {
     setErrorFetch(false);
     handleGetUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (usuario) {
       handleGetProyectos();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usuario]);
 
   async function handleGetUser() {
