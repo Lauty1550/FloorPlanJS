@@ -12,6 +12,7 @@ export default function ProtectedAdminRoute({ children }) {
     if (!isAdmin({ isAuthenticated, user }) && !isLoading) {
       navigate("/home");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, isLoading, user]);
 
   // Si está autenticado, renderizar el componente protegido
