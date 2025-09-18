@@ -18,6 +18,7 @@ import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 import Organizaciones from "./pages/Organizaciones";
 import OrganizacionProvider from "./context/OrganizacionProvider";
 import ProyectoTrabajadores from "./pages/ProyectoTrabajadores";
+import ProyectoDetail from "./pages/ProyectoDetail";
 
 export default function App() {
   return (
@@ -74,13 +75,19 @@ export default function App() {
             }
           />
 
+          <Route
+            path="/proyectos/:id"
+            element={
+              <ProtectedRoute>
+                <ProyectoDetail />
+              </ProtectedRoute>
+            }
+          />
+
           {/*
          
  
-          <Route
-            path="/proyectos/:id"
-            element={<ProtectedRoute element={ProyectoDetail} />}
-          />
+         
           <Route
             path="/plano/:id"
             element={<ProtectedRoute element={PlanoDetail} />}
