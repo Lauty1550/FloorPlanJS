@@ -4,62 +4,29 @@ import "../css/CustomContainerHome.css";
 import "../css/TitlePage.css";
 import "../css/BackButton.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, useLocation, useParams } from "react-router";
-import { useState } from "react";
+import { Link } from "react-router";
 import BackArrowIcon from "../img/BackArrowSVG";
 import ProjectWorkersModal from "../components/ProjectWorkersModal";
+import useProyectoTrabajadores from "../hooks/useProyectoTrabajadores";
 
 // /type RoleType = "Propietario" | "Proyectistas" | "Dirección Técnica";
 
 export default function ProyectoTrabajadores() {
-  const { id } = useParams();
-
-  const location = useLocation();
-  const proyectoNombre = location.state?.proyectoNombre;
-
-  const [showModal, setShowModal] = useState(false);
-  const [selectedRole, setSelectedRole] = useState("");
-
-  function handleShowModalPropietario() {
-    setSelectedRole("Propietario");
-    setShowModal(true);
-  }
-
-  function handleShowModalProyectista() {
-    setSelectedRole("Proyectistas");
-    setShowModal(true);
-  }
-
-  function handleShowModalDireccionTecnica() {
-    setSelectedRole("Dirección Técnica");
-    setShowModal(true);
-  }
-
-  function handleCloseModal() {
-    setShowModal(false);
-  }
-
-  //   async function handleGetPropietario() {
-  //     const data = await responsableService.getPropietarioByProjectoId(id);
-  //     console.log(data);
-  //     setResponsables(data);
-  //   }
-
-  //   async function handleGetProyectistas() {
-  //     const data = await responsableService.getProyectistasByProjectoId(id);
-  //     setResponsables(data);
-  //   }
-
-  //   async function handleGetDireccionTecnica() {
-  //     const data = await responsableService.getDireccionTecnicaByProjectoId(id);
-  //     setResponsables(data);
-  //   }
+  const {
+    handleCloseModal,
+    handleShowModalDireccionTecnica,
+    handleShowModalPropietario,
+    handleShowModalProyectista,
+    id,
+    proyectoNombre,
+    selectedRole,
+    showModal,
+  } = useProyectoTrabajadores();
 
   return (
     <main className="container custom-container mt-3">
       <h1 className="titulo-page mb-5 mt-3">
-        {" "}
-        Responsables del proyecto{" "}
+        Responsables del proyecto
         <span className="titulo-azul"> {proyectoNombre}</span>
       </h1>
 
