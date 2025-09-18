@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { userService } from "../service/UserService";
 import { toast } from "react-toastify";
+import { OrganizacionContext } from "../context/OrganizacionContext";
 
 export default function useUserSearch() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const { updateUsers } = useContext(OrganizacionContext);
 
   useEffect(() => {
     handleGetUsuarios();
-  }, []);
+  }, [updateUsers]);
 
   useEffect(() => {
     const handler = setTimeout(() => {
