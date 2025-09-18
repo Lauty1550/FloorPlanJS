@@ -17,6 +17,7 @@ import Usuarios from "./pages/Usuarios";
 import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 import Organizaciones from "./pages/Organizaciones";
 import OrganizacionProvider from "./context/OrganizacionProvider";
+import ProyectoTrabajadores from "./pages/ProyectoTrabajadores";
 
 export default function App() {
   return (
@@ -46,7 +47,9 @@ export default function App() {
             path="/usuarios"
             element={
               <ProtectedAdminRoute>
-                <Usuarios />
+                <OrganizacionProvider>
+                  <Usuarios />
+                </OrganizacionProvider>
               </ProtectedAdminRoute>
             }
           />
@@ -61,6 +64,16 @@ export default function App() {
               </ProtectedAdminRoute>
             }
           />
+
+          <Route
+            path="/proyecto/:id/responsables"
+            element={
+              <ProtectedRoute>
+                <ProyectoTrabajadores />
+              </ProtectedRoute>
+            }
+          />
+
           {/*
          
  
@@ -72,10 +85,7 @@ export default function App() {
             path="/plano/:id"
             element={<ProtectedRoute element={PlanoDetail} />}
           />
-          <Route
-            path="/proyecto/:id/responsables"
-            element={<ProtectedRoute element={ProjectWorkers} />}
-          /> */}
+          */}
         </Routes>
       </main>
     </Router>

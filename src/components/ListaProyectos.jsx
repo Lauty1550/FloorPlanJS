@@ -119,9 +119,8 @@ export default function ListaProyectos() {
             </table>
           </div>
 
-          {/* Modal para confirmar eliminación */}
           <ModalDelete
-            show={!!proyectoDelete}
+            show={proyectoDelete}
             onClose={() => setProyectoDelete(null)}
             onDelete={() => {
               if (proyectoDelete) {
