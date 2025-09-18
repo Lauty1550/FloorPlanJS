@@ -19,6 +19,7 @@ import Organizaciones from "./pages/Organizaciones";
 import OrganizacionProvider from "./context/OrganizacionProvider";
 import ProyectoTrabajadores from "./pages/ProyectoTrabajadores";
 import ProyectoDetail from "./pages/ProyectoDetail";
+import PlanoProvider from "./context/PlanoProvider";
 
 export default function App() {
   return (
@@ -79,7 +80,10 @@ export default function App() {
             path="/proyectos/:id"
             element={
               <ProtectedRoute>
-                <ProyectoDetail />
+                <PlanoProvider>
+                  {" "}
+                  <ProyectoDetail />
+                </PlanoProvider>
               </ProtectedRoute>
             }
           />

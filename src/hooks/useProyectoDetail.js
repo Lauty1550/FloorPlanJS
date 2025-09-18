@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { proyectoService } from "../service/ProyectoService";
 import { toast } from "react-toastify";
 import { fileService } from "../service/FileService";
 import { planoService } from "../service/PlanoService";
+import { PlanoContext } from "../context/PlanoContext";
 
 export default function useProyectoDetail() {
   const { id } = useParams();
-  const [proyecto, setProyecto] = useState();
-  const [planos, setPlanos] = useState([]);
-  const [isLoading, setIsloading] = useState(false);
-  const [showForm, setShowForm] = useState(false);
-  const [deleteEnable, setDeleteEnable] = useState(false);
-  const [selectedPlanos, setSelectedPlanos] = useState([]);
-  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const [cantPlanosToDelete, setCantPlanosToDelete] = useState("");
+
+  const {
+    setPlanos,
+    setIsloading,
+    setDeleteEnable,
+    setProyecto,
+    selectedPlanos,
+    setSelectedPlanos,
+  } = useContext(PlanoContext);
 
   useEffect(() => {
     handleGetProyecto(id);
@@ -40,13 +42,6 @@ export default function useProyectoDetail() {
     }
   }
 
-  async function handleAddPlano() {
-    setShowForm(true);
-  }
-
-  function handleCloseForm() {
-    setShowForm(false);
-  }
   async function handleGetFile(plano) {
     try {
       const url = await fileService.obtenerArchivo(plano.archivoUrl);
@@ -55,32 +50,6 @@ export default function useProyectoDetail() {
     } catch (error) {
       toast.error("Error al cargar el archivo");
       console.error("Error al cargar archivo:");
-    }
-  }
-
-  function handleDeleteStart() {
-    setDeleteEnable(true);
-  }
-
-  function selectPlanoToDelete(id) {
-    setSelectedPlanos((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((planoId) => planoId !== id)
-        : [...prevSelected, id]
-    );
-  }
-
-  function handleDeleteCancel() {
-    setDeleteEnable(false);
-    setSelectedPlanos([]);
-  }
-
-  function handleConfirmDelete() {
-    if (selectedPlanos.length > 0) {
-      setCantPlanosToDelete(selectedPlanos.length.toString());
-      setShowConfirmationModal(true);
-    } else {
-      toast.info("Seleccione al menos un plano");
     }
   }
 
@@ -100,23 +69,8 @@ export default function useProyectoDetail() {
   }
 
   return {
-    proyecto,
-    planos,
-    isLoading,
-    showForm,
-    deleteEnable,
-    showConfirmationModal,
-    cantPlanosToDelete,
-    handleAddPlano,
-    handleCloseForm,
-    handleConfirmDelete,
-    handleDeleteStart,
-    selectPlanoToDelete,
-    handleDeleteCancel,
     deletePlanos,
     handleGetProyecto,
     id,
-    selectedPlanos,
-    setShowConfirmationModal,
   };
 }
