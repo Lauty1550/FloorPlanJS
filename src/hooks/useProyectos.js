@@ -1,8 +1,8 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
 import { userService } from "../service/UserService";
 import { ProyectoContext } from "../context/ProyectoContext";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function useProyectos() {
   const {
@@ -12,7 +12,7 @@ export default function useProyectos() {
     setIsloading,
     setErrorFetch,
   } = useContext(ProyectoContext);
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user } = useContext(DemoAuthContext);
 
   useEffect(() => {
     setErrorFetch(false);

@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ProyectoContext } from "./ProyectoContext";
-import { useAuth0 } from "@auth0/auth0-react";
 import { proyectoService } from "../service/ProyectoService";
 import { toast } from "react-toastify";
+import { DemoAuthContext } from "./DemoAuthContext";
 
 export function ProyectoProvider({ children }) {
   const [proyectos, setProyectos] = useState([]);
   const [isLoading, setIsloading] = useState(true);
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user } = useContext(DemoAuthContext);
   const [usuario, setUsuario] = useState();
   const [showProyectos, setShowProyectos] = useState(true);
   const [errorFetch, setErrorFetch] = useState(false);

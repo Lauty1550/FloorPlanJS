@@ -1,35 +1,46 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import "../css/Card.css";
 import "../css/Titulo.css";
 import "../css/CustomContainerHome.css";
 import "../css/TitlePage.css";
-// import { useEffect } from "react";
+
 import SpinLoader from "../components/Loader";
 import { isAdmin } from "../functions/isAdmin";
 import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { DemoAuthContext } from "../context/DemoAuthContext";
+// import { userService } from "../service/UserService";
 
 export default function Home() {
-  const { isAuthenticated, isLoading, user } = useAuth0();
+  const { isAuthenticated, isLoading, user, loginWithRedirect } =
+    useContext(DemoAuthContext);
 
-  //     const addUser = async () => {
-  //     try {
-  //       const userData = {
-  //         id: user?.sub,
-  //         name: user?.name,
-  //         email: user?.email,
-  //         picture: user?.picture,
-  //       };
-  //       await userService.crearUser(userData);
-  //     } catch (error) {
-  //       console.log("Error al crear el usuario:", error);
-  //     }
-  //   };
+  // const addUser = async () => {
+  //   try {
+  //     const userData = {
+  //       id: user?.sub,
+  //       name: user?.name,
+  //       email: user?.email,
+  //       picture: user?.picture,
+  //     };
+  //     await userService.crearUser(userData);
+  //   } catch (error) {
+  //     console.log("Error al crear el usuario:", error);
+  //   }
+  // };
 
-  //  useEffect(() => {
-  //     if (isAuthenticated && !isLoading) {
-  //       addUser();
-  //     }
-  //   }, []);
+  // useEffect(() => {
+  //   if (isAuthenticated && !isLoading) {
+  //     addUser();
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated && !isLoading) {
+      loginWithRedirect({
+        login_hint: "demo@demo.com",
+      });
+    }
+  }, []);
 
   if (isLoading) {
     return <SpinLoader isLoading={isLoading} />;

@@ -20,75 +20,76 @@ import OrganizacionProvider from "./context/OrganizacionProvider";
 import ProyectoTrabajadores from "./pages/ProyectoTrabajadores";
 import ProyectoDetail from "./pages/ProyectoDetail";
 import PlanoProvider from "./context/PlanoProvider";
+import DemoAuthProvider from "./context/DemoAuthProvider";
 
 export default function App() {
   return (
     <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
+      <DemoAuthProvider>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
 
-          {/* Ruta catch-all para 404 */}
-          <Route path="*" element={<NotFound />} />
+            {/* Ruta catch-all para 404 */}
+            <Route path="*" element={<NotFound />} />
 
-          <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
 
-          <Route
-            path="/proyectos"
-            element={
-              <ProtectedRoute>
-                <ProyectoProvider>
-                  <ProyectoPage />
-                </ProyectoProvider>
-              </ProtectedRoute>
-            }
-          />
+            <Route
+              path="/proyectos"
+              element={
+                <ProtectedRoute>
+                  <ProyectoProvider>
+                    <ProyectoPage />
+                  </ProyectoProvider>
+                </ProtectedRoute>
+              }
+            />
 
-          <Route
-            path="/usuarios"
-            element={
-              <ProtectedAdminRoute>
-                <OrganizacionProvider>
-                  <Usuarios />
-                </OrganizacionProvider>
-              </ProtectedAdminRoute>
-            }
-          />
+            <Route
+              path="/usuarios"
+              element={
+                <ProtectedAdminRoute>
+                  <OrganizacionProvider>
+                    <Usuarios />
+                  </OrganizacionProvider>
+                </ProtectedAdminRoute>
+              }
+            />
 
-          <Route
-            path="/organizaciones"
-            element={
-              <ProtectedAdminRoute>
-                <OrganizacionProvider>
-                  <Organizaciones />
-                </OrganizacionProvider>
-              </ProtectedAdminRoute>
-            }
-          />
+            <Route
+              path="/organizaciones"
+              element={
+                <ProtectedAdminRoute>
+                  <OrganizacionProvider>
+                    <Organizaciones />
+                  </OrganizacionProvider>
+                </ProtectedAdminRoute>
+              }
+            />
 
-          <Route
-            path="/proyecto/:id/responsables"
-            element={
-              <ProtectedRoute>
-                <ProyectoTrabajadores />
-              </ProtectedRoute>
-            }
-          />
+            <Route
+              path="/proyecto/:id/responsables"
+              element={
+                <ProtectedRoute>
+                  <ProyectoTrabajadores />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route
-            path="/proyectos/:id"
-            element={
-              <ProtectedRoute>
-                <PlanoProvider>
-                  {" "}
-                  <ProyectoDetail />
-                </PlanoProvider>
-              </ProtectedRoute>
-            }
-          />
+            <Route
+              path="/proyectos/:id"
+              element={
+                <ProtectedRoute>
+                  <PlanoProvider>
+                    <ProyectoDetail />
+                  </PlanoProvider>
+                </ProtectedRoute>
+              }
+            />
 
-          {/*
+            {/*
          
  
          
@@ -97,8 +98,9 @@ export default function App() {
             element={<ProtectedRoute element={PlanoDetail} />}
           />
           */}
-        </Routes>
-      </main>
+          </Routes>
+        </main>
+      </DemoAuthProvider>
     </Router>
   );
 }

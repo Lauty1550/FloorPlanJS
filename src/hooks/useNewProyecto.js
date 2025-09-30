@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { proyectoService } from "../service/ProyectoService";
 
 export default function useNewProyecto({ reset }) {
-  const { isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated, user, isLoading } = useContext(DemoAuthContext);
   const {
     usuario,
     proyectoSeleccionadoEdit,

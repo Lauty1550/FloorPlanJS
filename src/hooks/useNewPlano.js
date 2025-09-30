@@ -13,7 +13,7 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
     setValue,
     formState: { errors },
   } = useForm();
-  const { isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated, user, isLoading } = useContext(DemoAuthContext);
 
   const { setShowForm } = useContext(PlanoContext);
 

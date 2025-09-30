@@ -1,12 +1,15 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
 import { LogoutButton } from "./LogoutButton";
 import LoginButton from "./LoginButton";
+import { useContext } from "react";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function Header() {
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useContext(DemoAuthContext);
+
+  console.log(isAuthenticated);
 
   return (
     <nav className="navbar bg-dark navbar-expand-lg  mb-5" data-bs-theme="dark">
@@ -62,7 +65,7 @@ export default function Header() {
               </li>
             </ul>
 
-            {/* User dropdown */}
+            {/* User dropdown
             {isLoading ? (
               <button className="btn btn-secondary bg-dark">Cargando...</button>
             ) : isAuthenticated ? (
@@ -84,7 +87,7 @@ export default function Header() {
               </div>
             ) : (
               <LoginButton />
-            )}
+            )} */}
           </div>
         </div>
       </div>

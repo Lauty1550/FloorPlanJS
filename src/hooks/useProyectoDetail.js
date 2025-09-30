@@ -20,6 +20,7 @@ export default function useProyectoDetail() {
 
   useEffect(() => {
     handleGetProyecto(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function handleGetProyecto(id) {

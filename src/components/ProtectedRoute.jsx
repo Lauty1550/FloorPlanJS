@@ -1,9 +1,10 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import SpinLoader from "./Loader";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function ProtectedRoute({ children }) {
-  const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, isLoading, loginWithRedirect } =
+    useContext(DemoAuthContext);
   // Si el usuario no está autenticado, redirigir a la página de login de Auth0
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {

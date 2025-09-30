@@ -1,11 +1,11 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { isAdmin } from "../functions/isAdmin";
 import SpinLoader from "./Loader";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function ProtectedAdminRoute({ children }) {
-  const { isAuthenticated, isLoading, user } = useAuth0();
+  const { isAuthenticated, isLoading, user } = useContext(DemoAuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
