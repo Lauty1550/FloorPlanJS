@@ -6,14 +6,9 @@ import { fileService } from "../service/FileService";
 import { planoService } from "../service/PlanoService";
 import ButtonAdd from "./ButtonAdd";
 import SpinLoader from "./Loader";
+import { PlanoDetailContext } from "../context/PlanoDetailContext";
 
-export default function PlanoForm({
-  proyectoId,
-  onClose,
-  onUpdate,
-  file,
-  clear,
-}) {
+export default function PlanoForm({ proyectoId, onClose, onUpdate, clear }) {
   const {
     register,
     handleSubmit,
@@ -23,13 +18,19 @@ export default function PlanoForm({
   const { isAuthenticated, user, isLoading } = useContext(DemoAuthContext);
   const [pdfConversion, setPdfConversion] = useState(false);
 
+  const { croppedFile, setShowForm } = useContext(PlanoDetailContext);
+
+  function onCloseEtiqueta() {
+    setShowForm(false);
+  }
+
   const onSubmit = async (data) => {
     if (!isAuthenticated || isLoading || !user) {
       toast.error("Error al obtener informacion del usuario");
       onClose();
       return;
     }
-    if (file === null) {
+    if (croppedFile === null) {
       submitNewFile(data);
     } else {
       submitFile(data);
@@ -74,6 +75,7 @@ export default function PlanoForm({
       await planoService.addPlanoToProyecto(planoData, proyectoId);
 
       onClose();
+      onCloseEtiqueta();
       onUpdate();
       toast.success("Plano agregado");
       console.log("Plano agregado");
@@ -89,7 +91,7 @@ export default function PlanoForm({
     try {
       const planoData = { ...data };
       planoData.tipoArchivo = "image";
-      const archivo = await fileService.subirArchivo(file);
+      const archivo = await fileService.subirArchivo(croppedFile);
 
       if (archivo && archivo.fileId) {
         setValue("archivoUrl", null);
@@ -155,7 +157,7 @@ export default function PlanoForm({
                 )}
               </div>
 
-              {file === null && (
+              {croppedFile === null && (
                 <div className="mb-3">
                   <label htmlFor="archivoUrl" className="form-label">
                     Archivo (JPEG/PNG)

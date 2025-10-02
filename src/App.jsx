@@ -22,6 +22,7 @@ import ProyectoDetail from "./pages/ProyectoDetail";
 import PlanoProvider from "./context/PlanoProvider";
 import DemoAuthProvider from "./context/DemoAuthProvider";
 import PlanoDetail from "./pages/PlanoDetail";
+import PlanoDetailProvider from "./context/PlanoDetailProvider";
 
 export default function App() {
   return (
@@ -93,7 +94,9 @@ export default function App() {
                 path="/plano/:id"
                 element={
                   <ProtectedRoute>
-                    <PlanoDetail />
+                    <PlanoDetailProvider>
+                      <PlanoDetail />
+                    </PlanoDetailProvider>
                   </ProtectedRoute>
                 }
               />
