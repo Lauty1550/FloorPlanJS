@@ -3,14 +3,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
 import { LogoutButton } from "./LogoutButton";
 import LoginButton from "./LoginButton";
-import { useContext } from "react";
 import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function Header() {
-  const { isAuthenticated, isLoading } = useContext(DemoAuthContext);
-
-  console.log(isAuthenticated);
-
   return (
     <nav className="navbar bg-dark navbar-expand-lg  mb-5" data-bs-theme="dark">
       <div className="container-fluid">
