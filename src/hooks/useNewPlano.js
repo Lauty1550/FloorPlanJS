@@ -37,10 +37,11 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
   async function submitNewFile(data) {
     try {
       const planoData = { ...data };
-      //Subo el archivo y lo borro del planoData para que no tire error
+
       if (data.archivoUrl && data.archivoUrl[0]) {
         let file = data.archivoUrl[0];
-        //Validacion del tipo de archivo
+
+        // Validación del tipo de archivo
         const tipoImagen = ["image/jpeg", "image/png"];
         if (!tipoImagen.includes(file.type)) {
           toast.error("El archivo debe ser una imagen (JPEG/PNG).");
@@ -49,25 +50,32 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
 
         planoData.tipoArchivo = "image";
 
-        //Validacion del tamanio
+        // Validación del tamaño
         if (file.size > 10 * 1024 * 1024) {
-          // 2MB
-          toast.error("El tamaño del archivo no puede ser mayor a 2MB.");
+          toast.error("El tamaño del archivo no puede ser mayor a 10MB.");
           return;
         }
 
+        // Subir el archivo a Cloudinary
         const archivo = await fileService.subirArchivo(file);
 
-        if (archivo && archivo.fileId) {
+        if (archivo && archivo.fileUrl && archivo.publicId) {
+          // Limpiar el campo del input
           setValue("archivoUrl", null);
+
+          // Guardamos en planoData tanto el publicId como la URL
           delete planoData.archivoUrl;
-          planoData.archivoUrl = archivo.fileId;
+          planoData.archivoUrl = {
+            url: archivo.fileUrl,
+            publicId: archivo.publicId,
+          };
         } else {
           console.log(data);
-          throw new Error("Error: No se recibió un id del archivo.");
+          throw new Error("Error: No se recibió la información del archivo.");
         }
       }
 
+      // Agregar plano al proyecto
       await planoService.addPlanoToProyecto(planoData, proyectoId);
 
       handleCloseForm();
@@ -75,7 +83,7 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
       toast.success("Plano agregado");
       console.log("Plano agregado");
     } catch (error) {
-      toast.error("Ocurrio un error");
+      toast.error("Ocurrió un error");
       console.log("Error ", error);
     }
   }
@@ -84,16 +92,44 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
     try {
       const planoData = { ...data };
       planoData.tipoArchivo = "image";
-      const archivo = await fileService.subirArchivo(file);
 
-      if (archivo && archivo.fileId) {
-        setValue("archivoUrl", null);
-        planoData.archivoUrl = archivo.fileId;
-      } else {
-        console.log(data);
-        throw new Error("Error: No se recibió un id del archivo.");
+      // Si hay archivo seleccionado
+      if (data.archivoUrl && data.archivoUrl[0]) {
+        const file = data.archivoUrl[0];
+
+        // Validación del tipo de archivo
+        const tiposPermitidos = ["image/jpeg", "image/png"];
+        if (!tiposPermitidos.includes(file.type)) {
+          toast.error("El archivo debe ser una imagen (JPEG/PNG).");
+          return;
+        }
+
+        // Validación del tamaño (máx 10 MB)
+        if (file.size > 10 * 1024 * 1024) {
+          toast.error("El tamaño del archivo no puede ser mayor a 10MB.");
+          return;
+        }
+
+        // Subir archivo a Cloudinary
+        const archivo = await fileService.subirArchivo(file);
+
+        if (archivo && archivo.fileUrl && archivo.publicId) {
+          // Limpiamos el campo del formulario
+          setValue("archivoUrl", null);
+
+          // Mandamos objeto con url y publicId
+          planoData.archivoUrl = {
+            url: archivo.fileUrl,
+            publicId: archivo.publicId,
+          };
+        } else {
+          throw new Error(
+            "Error: No se recibió un archivo válido de Cloudinary."
+          );
+        }
       }
 
+      // Enviar datos al backend
       await planoService.addPlanoToProyecto(planoData, proyectoId);
 
       handleCloseForm();
@@ -101,8 +137,8 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
       toast.success("Plano agregado");
       console.log("Plano agregado");
     } catch (error) {
-      toast.error("Ocurrio un error");
-      console.log("Error al crear plano ", error);
+      toast.error("Ocurrió un error");
+      console.log("Error al crear plano: ", error);
     }
   }
 

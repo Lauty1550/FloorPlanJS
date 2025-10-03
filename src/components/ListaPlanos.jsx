@@ -33,7 +33,7 @@ export default function ListaPlanos() {
                         >
                           <h5 className="card-title">{plano.especialidad}</h5>
 
-                          {plano.archivoUrl && plano.preview && (
+                          {plano.archivoUrl && plano.archivoUrl.url && (
                             <div
                               style={{
                                 display: "flex",
@@ -42,7 +42,7 @@ export default function ListaPlanos() {
                             >
                               <img
                                 className="preview-image"
-                                src={plano.preview}
+                                src={plano.archivoUrl.url}
                                 alt="Vista previa del archivo"
                                 style={{ maxWidth: "100%", height: "auto" }}
                               />
@@ -58,7 +58,7 @@ export default function ListaPlanos() {
                           <div className="card-body-proyecto">
                             <h5 className="card-title">{plano.especialidad}</h5>
 
-                            {plano.archivoUrl && plano.preview && (
+                            {plano.archivoUrl && plano.archivoUrl.url && (
                               <div
                                 style={{
                                   display: "flex",
@@ -67,7 +67,7 @@ export default function ListaPlanos() {
                               >
                                 <img
                                   className="preview-image"
-                                  src={plano.preview}
+                                  src={plano.archivoUrl.url}
                                   alt="Vista previa del archivo"
                                   style={{ maxWidth: "100%", height: "auto" }}
                                 />

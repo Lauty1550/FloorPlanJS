@@ -53,10 +53,12 @@ export default function usePlanoDetail() {
       }
       setEtiquetas(etiquetasTemp);
       console.log("Plano obtenido");
+      setArchivoUrl(data.archivoUrl.url);
+      setIsloading(false);
 
-      if (data.archivoUrl) {
-        handleGetFile(data.archivoUrl);
-      }
+      // if (data.archivoUrl) {
+      //   handleGetFile(data.archivoUrl);
+      // }
     } catch (error) {
       setIsloading(false);
       toast.error("Error al obtener plano");
@@ -64,18 +66,18 @@ export default function usePlanoDetail() {
     }
   }
 
-  async function handleGetFile(archivoUrl) {
-    setIsloading(true);
-    try {
-      const url = await fileService.obtenerArchivo(archivoUrl);
-      setArchivoUrl(url);
-    } catch (error) {
-      toast.error("Error al cargar el archivo");
-      console.error("Error al cargar archivo:", error);
-    } finally {
-      setIsloading(false);
-    }
-  }
+  // async function handleGetFile(archivoUrl) {
+  //   setIsloading(true);
+  //   try {
+  //     const url = await fileService.obtenerArchivo(archivoUrl);
+  //     setArchivoUrl(url);
+  //   } catch (error) {
+  //     toast.error("Error al cargar el archivo");
+  //     console.error("Error al cargar archivo:", error);
+  //   } finally {
+  //     setIsloading(false);
+  //   }
+  // }
 
   async function handleGetFileEtiqueta(etiqueta) {
     try {

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { proyectoService } from "../service/ProyectoService";
 import { toast } from "react-toastify";
-import { fileService } from "../service/FileService";
+// import { fileService } from "../service/FileService";
 import { planoService } from "../service/PlanoService";
 import { PlanoContext } from "../context/PlanoContext";
 
@@ -29,9 +29,9 @@ export default function useProyectoDetail() {
       const data = await proyectoService.obtenerProyecto(id);
       setProyecto(data);
       const planosTemp = data.planos;
-      for (const plano of planosTemp) {
-        await handleGetFile(plano);
-      }
+      // for (const plano of planosTemp) {
+      //   await handleGetFile(plano);
+      // }
       setPlanos(planosTemp);
 
       // eslint-disable-next-line no-unused-vars
@@ -43,16 +43,16 @@ export default function useProyectoDetail() {
     }
   }
 
-  async function handleGetFile(plano) {
-    try {
-      const url = await fileService.obtenerArchivo(plano.archivoUrl);
-      plano.preview = url;
-      // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      toast.error("Error al cargar el archivo");
-      console.error("Error al cargar archivo:");
-    }
-  }
+  // async function handleGetFile(plano) {
+  //   try {
+  //     const url = await fileService.obtenerArchivo(plano.archivoUrl);
+  //     plano.preview = url;
+  //     // eslint-disable-next-line no-unused-vars
+  //   } catch (error) {
+  //     toast.error("Error al cargar el archivo");
+  //     console.error("Error al cargar archivo:");
+  //   }
+  // }
 
   async function deletePlanos() {
     try {
