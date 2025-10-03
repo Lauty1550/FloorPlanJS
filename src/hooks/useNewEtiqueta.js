@@ -21,12 +21,11 @@ export default function useNewEtiqueta({ onUpdate, planoId }) {
 
   const saveCroppedImage = async (data) => {
     try {
-      // Subir archivo al servidor
       const archivo = await fileService.subirArchivo(croppedFile);
 
-      if (archivo && archivo.fileId) {
+      if (archivo && archivo.fileUrl) {
         const etiquetaData = {
-          archivoUrl: archivo.fileId,
+          archivoUrl: { url: archivo.fileUrl, publicId: archivo.publicId },
           nombre: data.nombre,
         };
 
@@ -34,12 +33,12 @@ export default function useNewEtiqueta({ onUpdate, planoId }) {
         await etiquetaService.addEtiquetaToPlano(etiquetaData, planoId);
 
         toast.success("Etiqueta creada");
-        cropperClear;
+        cropperClear();
         reset();
         onUpdate();
         handleCloseForm();
       } else {
-        throw new Error("No se recibió un id del archivo.");
+        throw new Error("No se recibió la URL del archivo.");
       }
     } catch (error) {
       toast.error("Error al crear etiqueta.");

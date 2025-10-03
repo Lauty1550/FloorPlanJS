@@ -71,7 +71,7 @@ export default function EtiquetasPlano() {
                       >
                         <h5 className="card-title">{etiqueta.nombre}</h5>
 
-                        {etiqueta.archivoUrl && etiqueta.preview && (
+                        {etiqueta.archivoUrl && etiqueta.archivoUrl.url && (
                           <div
                             style={{
                               display: "flex",
@@ -80,7 +80,7 @@ export default function EtiquetasPlano() {
                           >
                             <img
                               className="preview-image"
-                              src={etiqueta.preview}
+                              src={etiqueta.archivoUrl.url}
                               alt="Vista previa"
                               style={{ maxWidth: "100%", height: "auto" }}
                             />
@@ -93,14 +93,14 @@ export default function EtiquetasPlano() {
                   <div
                     key={etiqueta.id}
                     className=" mt-5 col-md-6"
-                    onClick={() => handleEtiquetaClick(etiqueta.preview)}
+                    onClick={() => handleEtiquetaClick(etiqueta.archivoUrl.url)}
                     style={{ cursor: "pointer" }}
                   >
                     <div className="card">
                       <div className="card-body-proyecto">
                         <h5 className="card-title">{etiqueta.nombre}</h5>
 
-                        {etiqueta.archivoUrl && etiqueta.preview && (
+                        {etiqueta.archivoUrl && etiqueta.archivoUrl.url && (
                           <div
                             style={{
                               display: "flex",
@@ -109,7 +109,7 @@ export default function EtiquetasPlano() {
                           >
                             <img
                               className="preview-image"
-                              src={etiqueta.preview}
+                              src={etiqueta.archivoUrl.url}
                               alt="Vista previa"
                               style={{ maxWidth: "100%", height: "auto" }}
                             />

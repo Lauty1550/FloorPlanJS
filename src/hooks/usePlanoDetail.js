@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router";
 import { toast } from "react-toastify";
 import { PlanoDetailContext } from "../context/PlanoDetailContext";
 import { planoService } from "../service/PlanoService";
-import { fileService } from "../service/FileService";
+// import { fileService } from "../service/FileService";
 import { etiquetaService } from "../service/EtiquetaService";
 
 export default function usePlanoDetail() {
@@ -48,9 +48,9 @@ export default function usePlanoDetail() {
       const data = await planoService.getPlanoById(id);
       setPlanoRender(data);
       const etiquetasTemp = data.etiquetas;
-      for (const etiqueta of etiquetasTemp) {
-        await handleGetFileEtiqueta(etiqueta);
-      }
+      // for (const etiqueta of etiquetasTemp) {
+      //   await handleGetFileEtiqueta(etiqueta);
+      // }
       setEtiquetas(etiquetasTemp);
       console.log("Plano obtenido");
       setArchivoUrl(data.archivoUrl.url);
@@ -79,15 +79,15 @@ export default function usePlanoDetail() {
   //   }
   // }
 
-  async function handleGetFileEtiqueta(etiqueta) {
-    try {
-      const url = await fileService.obtenerArchivo(etiqueta.archivoUrl);
-      etiqueta.preview = url;
-    } catch (error) {
-      toast.error("Error al cargar el archivo etiqueta");
-      console.error("Error al cargar archivo etiqueta:", error);
-    }
-  }
+  // async function handleGetFileEtiqueta(etiqueta) {
+  //   try {
+  //     const url = await fileService.obtenerArchivo(etiqueta.archivoUrl);
+  //     etiqueta.preview = url;
+  //   } catch (error) {
+  //     toast.error("Error al cargar el archivo etiqueta");
+  //     console.error("Error al cargar archivo etiqueta:", error);
+  //   }
+  // }
 
   async function deleteEtiquetas() {
     try {

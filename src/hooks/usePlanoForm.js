@@ -34,10 +34,9 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
   async function submitNewFile(data) {
     try {
       const planoData = { ...data };
-      //Subo el archivo y lo borro del planoData para que no tire error
+
       if (data.archivoUrl && data.archivoUrl[0]) {
         let file = data.archivoUrl[0];
-        //Validacion del tipo de archivo
         const tipoImagen = ["image/jpeg", "image/png"];
 
         if (!tipoImagen.includes(file.type)) {
@@ -84,14 +83,18 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
     try {
       const planoData = { ...data };
       planoData.tipoArchivo = "image";
+
       const archivo = await fileService.subirArchivo(croppedFile);
 
-      if (archivo && archivo.fileId) {
-        setValue("archivoUrl", null);
-        planoData.archivoUrl = archivo.fileId;
+      if (archivo && archivo.fileUrl && archivo.publicId) {
+        planoData.archivoUrl = {
+          url: archivo.fileUrl,
+          publicId: archivo.publicId,
+        };
       } else {
-        console.log(data);
-        throw new Error("Error: No se recibió un id del archivo.");
+        throw new Error(
+          "Error: No se recibió la URL o el publicId del archivo."
+        );
       }
 
       await planoService.addPlanoToProyecto(planoData, proyectoId);
@@ -102,8 +105,8 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
       toast.success("Plano agregado");
       console.log("Plano agregado");
     } catch (error) {
-      toast.error("Ocurrio un error");
-      console.log("Error al crear plano ", error);
+      toast.error("Ocurrió un error");
+      console.log("Error al crear plano", error);
     }
   }
 
