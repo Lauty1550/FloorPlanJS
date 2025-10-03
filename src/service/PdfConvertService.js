@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "pdf";
 
 export const PdfService = {
-  async convertirPdf(archivo: File) {
+  async convertirPdf(archivo) {
     const formData = new FormData();
     formData.append("file", archivo);
 

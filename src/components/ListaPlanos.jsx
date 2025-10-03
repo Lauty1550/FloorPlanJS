@@ -9,8 +9,6 @@ export default function ListaPlanos() {
 
   const { selectPlanoToDelete } = useListaPlanos();
 
-  console.log(planos);
-
   return (
     <>
       {!isLoading && (

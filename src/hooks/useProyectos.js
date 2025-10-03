@@ -38,8 +38,9 @@ export default function useProyectos() {
       if (userOrg) {
         setUsuario(userOrg);
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.error("Error al obtener el usuario:", error);
+      console.error("Error al obtener el usuario:");
       toast.error("Error al obtener proyectos");
       setErrorFetch(true);
       setIsloading(false);

@@ -52,17 +52,18 @@ export default function usePlanoDetail() {
       //   await handleGetFileEtiqueta(etiqueta);
       // }
       setEtiquetas(etiquetasTemp);
-      console.log("Plano obtenido");
+      // console.log("Plano obtenido");
       setArchivoUrl(data.archivoUrl.url);
       setIsloading(false);
 
       // if (data.archivoUrl) {
       //   handleGetFile(data.archivoUrl);
       // }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       setIsloading(false);
       toast.error("Error al obtener plano");
-      console.error("Error al obtener plano:", error);
+      console.error("Error al obtener plano:");
     }
   }
 
@@ -98,9 +99,9 @@ export default function usePlanoDetail() {
       setSelectedEtiquetas([]);
       handleGetPlano(id);
       toast.success("Etiqueta(s) eliminada(s)");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.error("Error al eliminar etiqueta(s): ", error);
-      throw error;
+      console.error("Error al eliminar etiqueta(s) ");
     }
   }
 

@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const responsableService = {
-  async crearPropietario(data: any, proyectoId: string) {
+  async crearPropietario(data, proyectoId) {
     try {
       const response = await fetch(
         `${BASE_URL}Propietario/Agregar-Propietario/${proyectoId}`,
@@ -23,7 +23,7 @@ export const responsableService = {
     }
   },
 
-  async getPropietarioByProjectoId(proyectoId: string) {
+  async getPropietarioByProjectoId(proyectoId) {
     try {
       const resp = await fetch(`${BASE_URL}Propietario/Get/${proyectoId}`);
 
@@ -45,8 +45,7 @@ export const responsableService = {
     }
   },
 
-  async crearProyectista(data: any, proyectoId: string) {
-    console.log("dfats ", data);
+  async crearProyectista(data, proyectoId) {
     try {
       const response = await fetch(
         `${BASE_URL}Proyectista/Agregar-Proyectista/${proyectoId}`,
@@ -68,13 +67,13 @@ export const responsableService = {
     }
   },
 
-  async getProyectistasByProjectoId(proyectoId: string) {
+  async getProyectistasByProjectoId(proyectoId) {
     const resp = await fetch(`${BASE_URL}Proyectista/Get/${proyectoId}`);
     const data = await resp.json();
     return data;
   },
 
-  async crearDireccionTecnica(data: any, proyectoId: string) {
+  async crearDireccionTecnica(data, proyectoId) {
     try {
       const response = await fetch(
         `${BASE_URL}Direccion-tecnica/Agregar-DireccionTecnica/${proyectoId}`,
@@ -96,13 +95,13 @@ export const responsableService = {
     }
   },
 
-  async getDireccionTecnicaByProjectoId(proyectoId: string) {
+  async getDireccionTecnicaByProjectoId(proyectoId) {
     const resp = await fetch(`${BASE_URL}Direccion-tecnica/Get/${proyectoId}`);
     const data = await resp.json();
     return data;
   },
 
-  async deletePropietario(id: string) {
+  async deletePropietario(id) {
     try {
       const response = await fetch(`${BASE_URL}Propietario/Borrar/${id}`, {
         method: "DELETE",
@@ -122,7 +121,7 @@ export const responsableService = {
     }
   },
 
-  async deleteProyectista(id: string) {
+  async deleteProyectista(id) {
     try {
       const response = await fetch(`${BASE_URL}Proyectista/Borrar/${id}`, {
         method: "DELETE",
@@ -142,7 +141,7 @@ export const responsableService = {
     }
   },
 
-  async deleteDireccionTecnica(id: string) {
+  async deleteDireccionTecnica(id) {
     try {
       const response = await fetch(
         `${BASE_URL}Direccion-tecnica/Borrar/${id}`,

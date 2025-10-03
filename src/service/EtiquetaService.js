@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "Etiqueta";
 
 export const etiquetaService = {
-  async addEtiquetaToPlano(data: any, planoId: string) {
+  async addEtiquetaToPlano(data, planoId) {
     try {
       const response = await fetch(`${BASE_URL}/Agregar-Etiqueta/${planoId}`, {
         method: "POST",
@@ -20,7 +20,7 @@ export const etiquetaService = {
     }
   },
 
-  async deleteEtiquetaById(id: string) {
+  async deleteEtiquetaById(id) {
     try {
       const resp = await fetch(`${BASE_URL}/Borrar/${id}`, {
         method: "DELETE",

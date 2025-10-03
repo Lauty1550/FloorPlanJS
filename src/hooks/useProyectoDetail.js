@@ -36,7 +36,7 @@ export default function useProyectoDetail() {
 
       // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.error("Error al obtener proyecto: ");
+      console.error("Error al obtener proyecto");
       toast.error("Error al obtener proyecto");
     } finally {
       setIsloading(false);
@@ -63,9 +63,9 @@ export default function useProyectoDetail() {
       setSelectedPlanos([]);
       handleGetProyecto(id);
       toast.success("Plano(s) eliminado(s)");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      console.error("Error al eliminar plano(s): ", error);
-      throw error;
+      console.error("Error al eliminar plano(s) ");
     }
   }
 

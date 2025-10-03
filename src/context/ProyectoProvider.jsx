@@ -27,10 +27,11 @@ export function ProyectoProvider({ children }) {
       );
       setProyectos(data);
       setShowProyectos(true);
-      console.log("Proyectos obtenidos exitosamente");
+      // console.log("Proyectos obtenidos exitosamente");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al obtener proyectos");
-      console.log("Error al obtener proyectos", error);
+      console.error("Error al obtener proyectos");
       setErrorFetch(true);
     } finally {
       setIsloading(false);

@@ -17,10 +17,11 @@ export default function OrganizacionProvider({ children }) {
       setIsLoading(true);
       const data = await organizacionService.obtenerOrganizaciones();
       setOrganizaciones(data);
-      console.log("Organizaciones obtenidas");
+      // console.log("Organizaciones obtenidas");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al obtener organizaciones");
-      console.log("Error al obtener organizaciones", error);
+      console.error("Error al obtener organizaciones");
       setErrorFetch(true);
     } finally {
       setIsLoading(false);

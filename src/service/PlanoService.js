@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "Plano";
 
 export const planoService = {
-  async addPlanoToProyecto(data: any, proyectoId: string) {
+  async addPlanoToProyecto(data, proyectoId) {
     try {
       const response = await fetch(`${BASE_URL}/Agregar-Plano/${proyectoId}`, {
         method: "POST",
@@ -20,7 +20,7 @@ export const planoService = {
     }
   },
 
-  async getPlanoById(id: string) {
+  async getPlanoById(id) {
     try {
       const resp = await fetch(`${BASE_URL}/${id}`);
       if (!resp.ok) {
@@ -37,7 +37,7 @@ export const planoService = {
     }
   },
 
-  async deletePlanoById(id: string) {
+  async deletePlanoById(id) {
     try {
       const resp = await fetch(`${BASE_URL}/Borrar/${id}`, {
         method: "DELETE",

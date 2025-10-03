@@ -11,11 +11,12 @@ export default function useModalUserOrg({ organizacionId }) {
     setIsAdding(userId);
     try {
       await userService.addUserToOrg(organizacionId, userId);
-      console.log("Usuario agregado a la organizacion");
+      // console.log("Usuario agregado a la organizacion");
       toast.success("Usuario agregado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al agregar usuario");
-      console.error("Error al agregar usuario", error);
+      console.error("Error al agregar usuario");
     } finally {
       setIsAdding(null);
       setUpdateUsers(!updateUsers);
@@ -26,11 +27,12 @@ export default function useModalUserOrg({ organizacionId }) {
     setIsAdding(userId);
     try {
       await userService.removeUserFromOrg(userId);
-      console.log("Usuario desvinculado");
+      // console.log("Usuario desvinculado");
       toast.success("Usuario desvinculado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al desvincular usuario");
-      console.error("Error al desvincular usuario ", error);
+      console.error("Error al desvincular usuario ");
     } finally {
       setIsAdding(null);
       setUpdateUsers(!updateUsers);

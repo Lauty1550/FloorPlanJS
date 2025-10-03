@@ -60,7 +60,6 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
           delete planoData.archivoUrl;
           planoData.archivoUrl = archivo.fileId;
         } else {
-          console.log(data);
           throw new Error("Error: No se recibió un id del archivo.");
         }
       }
@@ -70,10 +69,11 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
       onClose();
       onUpdate();
       toast.success("Plano agregado");
-      console.log("Plano agregado");
+      // console.log("Plano agregado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Ocurrio un error");
-      console.log("Error ", error);
+      console.log("Error ");
     } finally {
       setPdfConversion(false);
     }
@@ -103,10 +103,11 @@ export default function usePlanoForm({ onClose, onUpdate, proyectoId, clear }) {
       onClose();
       onUpdate();
       toast.success("Plano agregado");
-      console.log("Plano agregado");
+      // console.log("Plano agregado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Ocurrió un error");
-      console.log("Error al crear plano", error);
+      console.log("Error al crear plano");
     }
   }
 

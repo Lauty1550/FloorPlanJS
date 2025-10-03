@@ -81,10 +81,11 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
       handleCloseForm();
       onUpdate();
       toast.success("Plano agregado");
-      console.log("Plano agregado");
+      // console.log("Plano agregado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Ocurrió un error");
-      console.log("Error ", error);
+      console.log("Error ");
     }
   }
 
@@ -135,10 +136,11 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
       handleCloseForm();
       onUpdate();
       toast.success("Plano agregado");
-      console.log("Plano agregado");
+      // console.log("Plano agregado");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Ocurrió un error");
-      console.log("Error al crear plano: ", error);
+      console.log("Error al crear plano: ");
     }
   }
 

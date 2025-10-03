@@ -1,6 +1,6 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "File-Schema";
 export const FileSchemaService = {
-  async getFileType(id: string) {
+  async getFileType(id) {
     try {
       const response = await fetch(`${BASE_URL}/${id}`);
       if (!response.ok) {

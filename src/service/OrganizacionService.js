@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "Organizacion";
 
 export const organizacionService = {
-  async crearOrganizacion(data: any) {
+  async crearOrganizacion(data) {
     try {
       const response = await fetch(`${BASE_URL}/Crear`, {
         method: "POST",
@@ -33,7 +33,7 @@ export const organizacionService = {
     }
   },
 
-  async actualizarOrganizacion(id: string, data: any) {
+  async actualizarOrganizacion(id, data) {
     try {
       const responde = await fetch(`${BASE_URL}/Update/${id}`, {
         method: "PUT",
@@ -50,7 +50,7 @@ export const organizacionService = {
     }
   },
 
-  async deleteOrganizacion(id: string) {
+  async deleteOrganizacion(id) {
     try {
       const response = await fetch(`${BASE_URL}/Borrar/${id}`, {
         method: "DELETE",

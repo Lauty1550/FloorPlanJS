@@ -40,9 +40,10 @@ export default function useNewEtiqueta({ onUpdate, planoId }) {
       } else {
         throw new Error("No se recibió la URL del archivo.");
       }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al crear etiqueta.");
-      console.error("Error al subir imagen: ", error);
+      console.error("Error al subir imagen: ");
     }
   };
 

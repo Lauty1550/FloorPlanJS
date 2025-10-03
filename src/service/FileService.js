@@ -1,7 +1,7 @@
 const BASE_URL = import.meta.env.VITE_BASE_URL + "Archivo";
 
 export const fileService = {
-  async subirArchivo(archivo: File) {
+  async subirArchivo(archivo) {
     try {
       const formData = new FormData();
       formData.append("file", archivo);
@@ -22,7 +22,7 @@ export const fileService = {
       throw error;
     }
   },
-  async obtenerArchivo(id: string): Promise<string> {
+  async obtenerArchivo(id) {
     try {
       const response = await fetch(`${BASE_URL}/${id}`, {
         method: "GET",

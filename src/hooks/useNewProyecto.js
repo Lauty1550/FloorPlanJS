@@ -54,9 +54,10 @@ export default function useNewProyecto({ reset }) {
       }
       handleGetProyectos();
       handleCloseForm();
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Ocurrio un error");
-      console.log("Ocurrio un error", error);
+      console.error("Ocurrio un error");
     }
   };
 

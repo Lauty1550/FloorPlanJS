@@ -23,8 +23,9 @@ export default function useNewResponsableForm({ role, proyectoId, onClose }) {
         await responsableService.crearPropietario(data, proyectoId);
         toast.success("Propietario creado");
         onClose();
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        console.error("Error al crear propietario ", error);
+        console.error("Error al crear propietario ");
         toast.error("Error al crear propietario");
       }
     }
@@ -34,8 +35,9 @@ export default function useNewResponsableForm({ role, proyectoId, onClose }) {
         await responsableService.crearProyectista(data, proyectoId);
         toast.success("Proyectista creado");
         onClose();
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        console.error("Error al crear proyectista ", error);
+        console.error("Error al crear proyectista ");
         toast.error("Error al crear proyectista");
       }
     }
@@ -46,8 +48,9 @@ export default function useNewResponsableForm({ role, proyectoId, onClose }) {
         toast.success("Direcion tecnica creada");
 
         onClose();
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        console.error("Error al crear direccion tecnica ", error);
+        console.error("Error al crear direccion tecnica ");
         toast.error("Error al crear direccion tecnica");
       }
     }

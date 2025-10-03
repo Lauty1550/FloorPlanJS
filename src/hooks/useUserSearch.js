@@ -25,10 +25,11 @@ export default function useUserSearch() {
     try {
       const data = await userService.obtenerUsuarios();
       setUsers(data);
-      console.log("Datos obtenidos");
+      // console.log("Datos obtenidos");
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al obtener usuarios");
-      console.log("Error al obtener datos", error);
+      console.error("Error al obtener datos");
     }
   }
 

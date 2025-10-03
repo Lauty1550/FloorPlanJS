@@ -21,11 +21,12 @@ export default function useListaProyectos() {
     try {
       await proyectoService.deleteProyecto(id);
       toast.success("Proyecto eliminado exitosamente");
-      console.log("Proyecto eliminado exitosamente ");
+      // console.log("Proyecto eliminado exitosamente ");
       handleGetProyectos();
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al eliminar proyecto");
-      console.log("Error al eliminar proyecto", error);
+      console.log("Error al eliminar proyecto");
     }
   }
 
