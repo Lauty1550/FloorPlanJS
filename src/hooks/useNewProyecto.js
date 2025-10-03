@@ -1,8 +1,8 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useEffect } from "react";
 import { ProyectoContext } from "../context/ProyectoContext";
 import { toast } from "react-toastify";
 import { proyectoService } from "../service/ProyectoService";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function useNewProyecto({ reset }) {
   const { isAuthenticated, user, isLoading } = useContext(DemoAuthContext);
