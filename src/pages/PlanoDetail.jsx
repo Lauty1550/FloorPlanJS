@@ -55,7 +55,7 @@ export default function PlanoDetail() {
           Plano <span className="titulo-azul">{planoRender?.especialidad}</span>{" "}
           del proyecto <span className="titulo-azul">{proyectoNombre}</span>{" "}
         </h1>
-        <RenderPlano />;
+        <RenderPlano />
         <EtiquetasPlano />
         <ModalDelete
           show={showConfirmationModal}
