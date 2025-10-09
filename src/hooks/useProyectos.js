@@ -32,7 +32,6 @@ export default function useProyectos() {
       setIsloading(false);
       return;
     }
-    console.log("Datos del usuario: ", user, "Autenticado: ", isAuthenticated);
     try {
       setUsuario(user);
     } catch (error) {
