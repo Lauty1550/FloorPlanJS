@@ -31,25 +31,25 @@
 }
 
 .btn-add-user-org {
-  color: rgb(24, 24, 161);
+  color: rgb(62, 133, 224);
 }
 
 .btn-add-user-org:hover {
-  color: rgb(13, 13, 99);
+  color: rgb(20, 104, 212);
 }
 
 .btn-delete-user-org {
-  color: rgb(168, 22, 12);
+  color: rgb(202, 55, 44);
 }
 
 .btn-delete-user-org:hover {
-  color: rgb(117, 23, 16);
+  color: rgb(160, 35, 26);
 }
 
 .btn-lock-user-org {
-  color: rgb(48, 47, 46);
+  color: rgb(255, 255, 255);
 }
 
 .btn-lock-user-org:hover {
-  color: rgb(32, 32, 31);
+  color: rgb(206, 206, 193);
 }

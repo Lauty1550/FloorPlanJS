@@ -24,7 +24,7 @@ export default function HeaderProyectoDetail() {
         <div className="center-buttons">
           <Link to="/proyectos" className="back-button">
             <button className="back-button" title="Volver">
-              <BackArrowIcon color="black" />
+              <BackArrowIcon color="white" />
             </button>
           </Link>
 
@@ -33,35 +33,35 @@ export default function HeaderProyectoDetail() {
             text="Agregar Plano"
             type="button"
           />
-        </div>
 
-        <div className="derecha">
-          <button
-            className={`${
-              deleteEnable ? "cancel-button " : "transparent-button"
-            } `}
-            onClick={handleDeleteCancel}
-            title="Cancelar"
-          >
-            <CancelIcon color="black" />
-          </button>
+          <div className="delete-buttons">
+            <button
+              className={`${
+                deleteEnable ? "cancel-button " : "transparent-button"
+              } `}
+              onClick={handleDeleteCancel}
+              title="Cancelar"
+            >
+              {deleteEnable && <CancelIcon color="white" />}
+            </button>
 
-          {planos.length > 0 && (
-            <DeleteIconButton
-              onClick={handleDeleteStart}
-              className="margen-derecha"
-            />
-          )}
+            {planos.length > 0 && !deleteEnable && (
+              <DeleteIconButton
+                onClick={handleDeleteStart}
+                className="margen-derecha"
+              />
+            )}
 
-          <button
-            className={`${
-              deleteEnable ? "cancel-button " : "transparent-button"
-            } `}
-            onClick={handleConfirmDelete}
-            title="Confirmar"
-          >
-            <ConfirmIcon color="red" />
-          </button>
+            <button
+              className={`${
+                deleteEnable ? "cancel-button " : "transparent-button"
+              } `}
+              onClick={handleConfirmDelete}
+              title="Confirmar"
+            >
+              <ConfirmIcon color="red" />
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -1,21 +1,23 @@
-header.header {
-  background-color: #f8f9fa;
-  padding: 10px 0;
+.header {
+  background: #0f172a !important;
+  /* padding: 10px 0; */
 }
 
 header .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff !important; /* Usa !important si otros estilos están sobrescribiendo este */
+  color: #007bff !important;
 }
 
-header .navbar-nav .nav-link {
-  color: #343a40 !important;
+.navbar-nav,
+.nav-link {
+  color: #f1f5f9 !important;
   font-weight: 500;
   margin-right: 15px;
 }
 
-header .navbar-nav .nav-link:hover {
+.navbar-nav,
+.nav-link:hover {
   color: #007bff !important;
 }
 

@@ -8,6 +8,7 @@ import { isAdmin } from "../functions/isAdmin";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { DemoAuthContext } from "../context/DemoAuthContext";
+import { FiFolder, FiHome, FiUser, FiUsers } from "react-icons/fi";
 // import { userService } from "../service/UserService";
 
 export default function Home() {
@@ -52,7 +53,8 @@ export default function Home() {
       <div className="row ">
         <div className="col-md-6 mb-3">
           <Link to="/proyectos" className="card">
-            <div className="card-body">
+            <div className="card-body text-center">
+              <FiFolder size={40} className="mb-3 text-primary" />
               <h5 className="card-title">Proyectos</h5>
               <p className="card-text">Administra tus proyectos</p>
             </div>
@@ -62,7 +64,8 @@ export default function Home() {
           <>
             <div className="col-md-6 mb-3">
               <Link to="/usuarios" className="card">
-                <div className="card-body">
+                <div className="card-body text-center">
+                  <FiUsers size={40} className="mb-3 text-primary" />
                   <h5 className="card-title">Usuarios</h5>
                   <p className="card-text">
                     Administra los usuarios del sistema
@@ -72,7 +75,8 @@ export default function Home() {
             </div>
             <div className="col-md-6 mb-3">
               <Link to="/organizaciones" className="card">
-                <div className="card-body">
+                <div className="card-body text-center">
+                  <FiHome size={40} className="mb-3 text-primary" />
                   <h5 className="card-title">Organizaciones</h5>
                   <p className="card-text">
                     Administra las diferentes organizaciones

@@ -1,5 +1,5 @@
 .margen-derecha {
-  margin-left: auto;
+  /* margin-left: auto; */
   height: 50px;
   width: 50px;
   margin-right: 0px;
@@ -17,8 +17,20 @@
 
 .center-buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   margin: 0 auto;
+}
+
+@media (max-width: 435px) {
+  .center-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .derecha {
@@ -30,7 +42,7 @@
 .cancel-button {
   background-color: transparent;
   border: none;
-  width: 50px;
+  width: 65px;
   height: 50px;
   transition: all 0.3s ease;
 }
@@ -53,10 +65,16 @@
 }
 
 .transparent-button {
+  display: none;
   background-color: transparent;
   border: none;
   width: 50px;
   height: 50px;
   visibility: hidden;
   pointer-events: none;
+}
+
+.delete-buttons {
+  display: flex;
+  gap: 10px;
 }

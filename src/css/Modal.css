@@ -42,7 +42,9 @@
 }
 
 .modal-content {
-  background: white;
+  background: #1e293b;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.466);
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -62,7 +64,6 @@
 
 .form-label {
   font-size: 1rem;
-  color: #343a40;
   margin-bottom: 0.5rem;
   display: block;
   text-align: left;
@@ -72,7 +73,9 @@
   width: 100%;
 }
 
-.btn-close {
+.btn-close,
+.btn-close-white {
+  color: white;
   position: absolute;
   right: 10px;
   top: 10px;

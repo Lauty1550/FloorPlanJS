@@ -1,19 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
-import { LogoutButton } from "./LogoutButton";
-import LoginButton from "./LoginButton";
-import { DemoAuthContext } from "../context/DemoAuthContext";
+import "../css/Header.css";
 
 export default function Header() {
   return (
-    <nav className="navbar bg-dark navbar-expand-lg  mb-5" data-bs-theme="dark">
+    <nav
+      className="header navbar bg-dark navbar-expand-lg  mb-5"
+      data-bs-theme="dark"
+    >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/home">
           <img
             src="/logo.jpg"
             alt="Proyecto"
-            style={{ width: "90px", height: "80px" }}
+            style={{ width: "80px", height: "70px" }}
           />
         </Link>
         <button

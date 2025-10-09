@@ -23,6 +23,7 @@ export default function useProjectWorkersModal({ role, proyectoId }) {
         }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [role, proyectoId, update]);
 
   async function handleGetPropietario() {

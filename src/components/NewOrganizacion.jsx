@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { organizacionService } from "../service/OrganizacionService";
 import { toast } from "react-toastify";
 import ButtonAdd from "./ButtonAdd";
+import "../css/Modal.css";
 
 export default function NewOrganizacion({ organizacion, onClose, onUpdate }) {
   const {
@@ -55,7 +56,7 @@ export default function NewOrganizacion({ organizacion, onClose, onUpdate }) {
 
             <button
               type="button"
-              className="btn-close"
+              className="btn-close btn-close-white"
               onClick={onClose}
               aria-label="Close"
             />

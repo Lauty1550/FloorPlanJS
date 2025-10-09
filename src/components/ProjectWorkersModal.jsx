@@ -65,7 +65,7 @@ export default function ProjectWorkersModal({
               <h1 className="modal-title">Gestión de {role}</h1>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close btn-close-white"
                 onClick={onClose}
                 aria-label="Close"
               ></button>

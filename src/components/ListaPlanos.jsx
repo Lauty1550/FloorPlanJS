@@ -22,10 +22,10 @@ export default function ListaPlanos() {
                     className="mt-5 col-md-6"
                     onClick={() => selectPlanoToDelete(plano.id)}
                   >
-                    <div className="card">
+                    <div className="card-planos">
                       {deleteEnable ? (
                         <div
-                          className={`card-body-proyecto  ${
+                          className={`card ${
                             selectedPlanos.includes(plano.id)
                               ? "selected-card"
                               : ""
@@ -55,9 +55,10 @@ export default function ListaPlanos() {
                           state={{ proyectoNombre: proyecto.nombreProyecto }}
                           className="card"
                         >
+                          <h5 className="card-title-planos">
+                            {plano.especialidad}
+                          </h5>
                           <div className="card-body-proyecto">
-                            <h5 className="card-title">{plano.especialidad}</h5>
-
                             {plano.archivoUrl && plano.archivoUrl.url && (
                               <div
                                 style={{

@@ -1,6 +1,7 @@
 // Configuración del worker de PDF.js
 // pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import {
   Navigate,
   Route,
@@ -30,7 +31,7 @@ export default function App() {
       <DemoAuthProvider>
         <Header />
         <PlanoProvider>
-          <main>
+          <main className="root">
             <Routes>
               <Route path="/" element={<Navigate to="/home" replace />} />
 

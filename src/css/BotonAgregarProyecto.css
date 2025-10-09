@@ -1,10 +1,11 @@
 .btn-add-proyecto {
-  background-color: #28a745;
+  background-color: #197b30;
   color: white;
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: 600;
+  border: 2px solid rgba(0, 0, 0, 0.212);
   border-radius: 8px; /* Esquinas redondeadas */
   cursor: pointer;
   transition: all 0.3s ease;
@@ -13,7 +14,8 @@
   min-width: fit-content;
   text-align: center;
   margin-bottom: 10px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  margin-top: 10px;
 }
 
 .btn-add-proyecto:hover {

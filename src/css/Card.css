@@ -1,8 +1,9 @@
 /* styles.css */
 
-.card {
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+.card,
+.card-planos {
+  border: 1px solid #050505;
+  border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s; /* Transición suave para efectos de hover */
   text-align: center;
@@ -10,6 +11,17 @@
   color: inherit;
   display: block;
   height: 100%;
+  background: #111c2e;
+}
+
+.card,
+.card-planos a {
+  background: #0c1a2c;
+  border: 1px solid white;
+}
+
+.card-planos {
+  background: transparent;
 }
 
 .card:hover {
@@ -30,19 +42,29 @@
   border-top-right-radius: 0.25rem;
 }
 
-.card-title {
+.card-title,
+.card-title-planos {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #f1f5f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.card-title-planos {
+  background-color: #1e293b;
+  display: inline-block;
 }
 
 .card-text {
   font-size: 1rem;
   margin-bottom: 1rem;
+  color: #cbd5e1;
 }
 
 .card-body-proyecto {
-  background-color: rgba(0, 0, 0, 0.062);
+  /* background-color: rgba(0, 0, 0, 0.062); */
 }
 
 .preview-image {
@@ -58,4 +80,9 @@
   max-height: 200px;
   overflow-y: auto;
   object-fit: cover;
+}
+
+.delete-buttons {
+  display: flex;
+  gap: 10px;
 }

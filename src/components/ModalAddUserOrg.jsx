@@ -29,7 +29,7 @@ export default function ModalAddUserOrg({
             </h1>
             <button
               type="button"
-              className="btn-close"
+              className="btn-close  btn-close-white"
               onClick={onClose}
               aria-label="Close"
             ></button>

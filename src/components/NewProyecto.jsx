@@ -33,7 +33,7 @@ export default function NewProyecto() {
             )}
             <button
               type="button"
-              className="btn-close"
+              className="btn-close btn-close-white"
               onClick={handleCloseForm}
               aria-label="Close"
             />
