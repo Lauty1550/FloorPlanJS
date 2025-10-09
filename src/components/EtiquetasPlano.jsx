@@ -123,7 +123,7 @@ export default function EtiquetasPlano() {
             </div>
           </div>
         ) : (
-          <h1 className="mt-5"> El plano no posee etiquetas</h1>
+          <h1 className="mt-5 text-white"> El plano no posee etiquetas</h1>
         )}
       </section>
     </>

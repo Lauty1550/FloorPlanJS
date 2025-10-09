@@ -122,20 +122,19 @@ export default function RenderPlano() {
                 } `}
               >
                 <button onClick={handleBack} title="Volver">
-                  <BackArrowIcon color="black" />
+                  <BackArrowIcon color="white" />
                 </button>
                 <button onClick={() => zoomIn()} title="Zoom In">
-                  <ZoomInIcon color="black" />
+                  <ZoomInIcon color="white" />
                 </button>
                 <button onClick={() => zoomOut()} title="Zoom Out">
-                  <ZoomOutIcon color="black" />
+                  <ZoomOutIcon color="white" />
                 </button>
                 <button onClick={() => resetTransform()} title="Reset Zoom">
-                  <ZoomResetIcon color="black" />
+                  <ZoomResetIcon color="white" />
                 </button>
                 <button onClick={toggleFullScreen} title="FullScreen">
-                  {" "}
-                  <FullScreenIcon color="black" />
+                  <FullScreenIcon color="white" />
                 </button>
               </div>
               <div className="image-plano">

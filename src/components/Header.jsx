@@ -30,12 +30,12 @@ export default function Header() {
 
         {/* Offcanvas menu */}
         <div
-          className="offcanvas offcanvas-end"
+          className="offcanvas offcanvas-end drawer"
           tabIndex={-1}
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div className="offcanvas-header">
+          <div className="offcanvas-header ">
             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
               Menu
             </h5>

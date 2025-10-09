@@ -65,17 +65,19 @@ export default function NewEtiqueta({ onUpdate, planoId }) {
                 )}
               </div>
 
-              <ButtonAdd
-                onClick={() => {}}
-                text="Agregar Etiqueta"
-                type="submit"
-              />
-              <ButtonAdd
-                onClick={handleShowFormPlano}
-                text="Crear plano"
-                type="button"
-                className="blue"
-              />
+              <div className="botones-etiqueta">
+                <ButtonAdd
+                  onClick={() => {}}
+                  text="Agregar Etiqueta"
+                  type="submit"
+                />
+                <ButtonAdd
+                  onClick={handleShowFormPlano}
+                  text="Crear plano"
+                  type="button"
+                  className="blue"
+                />
+              </div>
             </form>
           </div>
         </div>

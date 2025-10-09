@@ -17,11 +17,14 @@
 .card,
 .card-planos a {
   background: #0c1a2c;
-  border: 1px solid white;
 }
 
 .card-planos {
   background: transparent;
+}
+
+.card-planos a {
+  border: 1px solid white;
 }
 
 .card:hover {
