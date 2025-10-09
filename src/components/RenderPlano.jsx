@@ -37,7 +37,7 @@ export default function RenderPlano() {
   } = useContext(PlanoDetailContext);
 
   if (!archivoUrl || !planoRender) {
-    return <p>No hay archivo disponible</p>;
+    return <p className="text-white">No hay archivo disponible</p>;
   }
 
   return (
