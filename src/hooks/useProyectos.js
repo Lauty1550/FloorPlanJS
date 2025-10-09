@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
-import { userService } from "../service/UserService";
 import { ProyectoContext } from "../context/ProyectoContext";
 import { DemoAuthContext } from "../context/DemoAuthContext";
 
@@ -35,10 +34,7 @@ export default function useProyectos() {
     }
     console.log("Datos del usuario: ", user, "Autenticado: ", isAuthenticated);
     try {
-      const userOrg = await userService.obtenerPorAuth0Id(user.sub);
-      if (userOrg) {
-        setUsuario(userOrg);
-      }
+      setUsuario(user);
     } catch (error) {
       console.error("Error al obtener el usuario: ", error);
       toast.error("Error al obtener proyectos");
