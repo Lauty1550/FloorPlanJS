@@ -33,6 +33,7 @@ export default function useProyectos() {
       setIsloading(false);
       return;
     }
+    console.log("Datos del usuario: ", user, "Autenticado: ", isAuthenticated);
     try {
       const userOrg = await userService.obtenerPorAuth0Id(user.sub);
       if (userOrg) {
