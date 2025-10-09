@@ -43,6 +43,8 @@ export default function Home() {
     }
   }, []);
 
+  console.log(import.meta.env);
+
   if (isLoading) {
     return <SpinLoader isLoading={isLoading} />;
   }
