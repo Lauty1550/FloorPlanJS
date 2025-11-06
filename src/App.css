@@ -26,6 +26,13 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+@media (max-width: 435px) {
+  .padding-mobile {
+    padding: 12px;
+    overflow: auto;
+  }
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

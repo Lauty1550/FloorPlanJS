@@ -18,7 +18,7 @@ export default function ListaOrganizaciones({
 
       {errorFetch ? (
         <div className="modal-body text-center">
-          <div className="table-responsive">
+          <div className="table-responsive padding-mobile">
             <table className="table">
               <thead>
                 <tr>
@@ -40,7 +40,7 @@ export default function ListaOrganizaciones({
             text="Agregar Organizacion"
             type="button"
           />
-          <div className="table-responsive">
+          <div className="table-responsive padding-mobile">
             <table className="table table-striped mt-3 text-center">
               <thead>
                 <tr>

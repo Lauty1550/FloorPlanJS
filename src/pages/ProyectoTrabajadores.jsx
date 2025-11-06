@@ -32,7 +32,7 @@ export default function ProyectoTrabajadores() {
 
       <Link to="/proyectos" className="back-button mb-3">
         <button className="back-button" title="Volver">
-          <BackArrowIcon color="black" />
+          <BackArrowIcon color="white" />
         </button>
       </Link>
 

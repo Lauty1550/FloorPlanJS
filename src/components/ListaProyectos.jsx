@@ -49,7 +49,7 @@ export default function ListaProyectos() {
             type="button"
           />
 
-          <div className="table-responsive">
+          <div className="table-responsive padding-mobile">
             <table className="table table-striped mt-3">
               <thead>
                 <tr>
