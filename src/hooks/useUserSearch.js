@@ -15,10 +15,10 @@ export default function useUserSearch() {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedSearch(search); // Actualizamos después del debounce
+      setDebouncedSearch(search); // Actualiza después del debounce
     }, 300);
 
-    return () => clearTimeout(handler); // Limpiamos el temporizador
+    return () => clearTimeout(handler); // Limpia el temporizador
   }, [search]);
 
   async function handleGetUsuarios() {

@@ -83,7 +83,7 @@ export default function ListaPlanos() {
               </div>
             </div>
           ) : (
-            <h1 className="mt-5"> El proyecto no posee planos</h1>
+            <h1 className="mt-5 text-white"> El proyecto no posee planos</h1>
           )}
         </section>
       )}
