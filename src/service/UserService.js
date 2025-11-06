@@ -15,7 +15,7 @@ export const userService = {
       }
       return await response.json();
     } catch (error) {
-      console.log("Error al crear usuario", error);
+      console.log("Error al crear usuario");
       throw error;
     }
   },
@@ -48,7 +48,7 @@ export const userService = {
       }
       return await response.json();
     } catch (error) {
-      console.log("Error al agregar usuario a la organizacion", error);
+      console.log("Error al agregar usuario a la organizacion");
       throw error;
     }
   },
@@ -66,7 +66,7 @@ export const userService = {
       }
       return await response.json();
     } catch (error) {
-      console.log("Error al desvincular usuario", error);
+      console.log("Error al desvincular usuario");
       throw error;
     }
   },

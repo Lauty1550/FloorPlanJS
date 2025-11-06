@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { toast } from "react-toastify";
-import { userService } from "../service/UserService";
 import { ProyectoContext } from "../context/ProyectoContext";
 import { DemoAuthContext } from "../context/DemoAuthContext";
 
@@ -34,13 +33,9 @@ export default function useProyectos() {
       return;
     }
     try {
-      const userOrg = await userService.obtenerPorAuth0Id(user.sub);
-      if (userOrg) {
-        setUsuario(userOrg);
-      }
-      // eslint-disable-next-line no-unused-vars
+      setUsuario(user);
     } catch (error) {
-      console.error("Error al obtener el usuario:");
+      console.error("Error al obtener el usuario: ", error);
       toast.error("Error al obtener proyectos");
       setErrorFetch(true);
       setIsloading(false);

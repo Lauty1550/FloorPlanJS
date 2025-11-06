@@ -38,11 +38,12 @@ export default function Organizaciones() {
       }
       await organizacionService.deleteOrganizacion(id);
       toast.success("Organizacion eliminada");
-      console.log("Organizacion eliminada");
+      // console.log("Organizacion eliminada");
       handleGetOrganizaciones();
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("Error al eliminar organizacion");
-      console.log("Error al eliminar organizacion", error);
+      console.log("Error al eliminar organizacion");
     }
   }
 

@@ -13,6 +13,8 @@ export default function DemoAuthProvider({ children }) {
       sub: demoUserId,
       email: demoEmail,
       name: demoName,
+      organizacionId: "679c1e678b0385269bc11b75",
+      organizacionName: "Construcciones SA",
     }),
     [demoUserId, demoEmail, demoName]
   );

@@ -70,7 +70,7 @@ export default function useNewPlano({ file, proyectoId, onUpdate }) {
             publicId: archivo.publicId,
           };
         } else {
-          console.log(data);
+          // console.log(data);
           throw new Error("Error: No se recibió la información del archivo.");
         }
       }
