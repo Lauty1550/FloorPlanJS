@@ -17,3 +17,12 @@
   color: white;
   border: 1px solid #2d3748;
 }
+
+.table-proyecto td {
+  cursor: pointer;
+  user-select: none;
+}
+
+tr.seleccionado td {
+  background-color: #010613 !important;
+}

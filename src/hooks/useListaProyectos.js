@@ -1,11 +1,24 @@
 import { toast } from "react-toastify";
 import { proyectoService } from "../service/ProyectoService";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProyectoContext } from "../context/ProyectoContext";
+import { useNavigate } from "react-router";
 
 export default function useListaProyectos() {
   const { handleGetProyectos, setShowForm, setProyectoSeleccionadoEdit } =
     useContext(ProyectoContext);
+  const [filaSeleccionada, setFilaSeleccionada] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+    window.addEventListener("touchend", handleGlobalMouseUp);
+
+    return () => {
+      window.removeEventListener("mouseup", handleGlobalMouseUp);
+      window.removeEventListener("touchend", handleGlobalMouseUp);
+    };
+  }, []);
 
   function handleAddProyecto() {
     setProyectoSeleccionadoEdit(null);
@@ -30,5 +43,20 @@ export default function useListaProyectos() {
     }
   }
 
-  return { handleAddProyecto, handleEditProyecto, handleDeleteProyecto };
+  function handleNavigateProyecto(id) {
+    navigate(`/proyectos/${id}`);
+  }
+
+  function handleGlobalMouseUp() {
+    setFilaSeleccionada(null);
+  }
+
+  return {
+    handleAddProyecto,
+    handleEditProyecto,
+    handleDeleteProyecto,
+    filaSeleccionada,
+    setFilaSeleccionada,
+    handleNavigateProyecto,
+  };
 }

@@ -10,17 +10,21 @@ import BlueprinIcon from "../img/BlueprintIcon";
 import EditIconButton from "../img/EditIcon";
 import DeleteIconButton from "../img/DeleteIcon";
 import ModalDelete from "../components/ModalDelete";
-import { useNavigate } from "react-router";
 import { useContext, useState } from "react";
 import { ProyectoContext } from "../context/ProyectoContext";
 import useListaProyectos from "../hooks/useListaProyectos";
 
 export default function ListaProyectos() {
-  const navigate = useNavigate();
   const [proyectoDelete, setProyectoDelete] = useState();
   const { proyectos, errorFetch } = useContext(ProyectoContext);
-  const { handleAddProyecto, handleDeleteProyecto, handleEditProyecto } =
-    useListaProyectos();
+  const {
+    handleAddProyecto,
+    handleDeleteProyecto,
+    handleEditProyecto,
+    filaSeleccionada,
+    setFilaSeleccionada,
+    handleNavigateProyecto,
+  } = useListaProyectos();
 
   return (
     <>
@@ -50,7 +54,7 @@ export default function ListaProyectos() {
           />
 
           <div className="table-responsive padding-mobile">
-            <table className="table table-striped mt-3">
+            <table className="table table-proyecto table-striped mt-3">
               <thead>
                 <tr>
                   <th>Nombre</th>
@@ -74,7 +78,16 @@ export default function ListaProyectos() {
                 ) : (
                   // Mostrar proyectos si existen
                   proyectos.map((proyecto) => (
-                    <tr key={proyecto.id}>
+                    <tr
+                      key={proyecto.id}
+                      onMouseDown={() => setFilaSeleccionada(proyecto.id)}
+                      onTouchStart={() => setFilaSeleccionada(proyecto.id)}
+                      onMouseUp={() => handleNavigateProyecto(proyecto.id)}
+                      onTouchEnd={() => handleNavigateProyecto(proyecto.id)}
+                      className={
+                        filaSeleccionada === proyecto.id ? "seleccionado" : ""
+                      }
+                    >
                       <td>{proyecto.nombreProyecto}</td>
                       <td>{proyecto.ubicacion}</td>
                       <td>{proyecto.obra}</td>
@@ -82,8 +95,14 @@ export default function ListaProyectos() {
                       <td>{proyecto.escala}</td>
                       <td>{proyecto.antecedente}</td>
                       <td>{proyecto.aprobacion}</td>
-                      <td>
-                        <button
+                      <td
+                        onMouseDown={(e) => e.stopPropagation()}
+                        onMouseUp={(e) => e.stopPropagation()}
+                        onTouchStart={(e) => e.stopPropagation()}
+                        onTouchEnd={(e) => e.stopPropagation()}
+                        style={{ cursor: "default" }}
+                      >
+                        {/* <button
                           className="boton-accion boton-principal"
                           title="Responsables"
                           onClick={() =>
@@ -95,11 +114,11 @@ export default function ListaProyectos() {
                           }
                         >
                           <WorkersIcon color="brown" />
-                        </button>
+                        </button> */}
                         <button
                           role="button"
                           className="boton-accion boton-principal"
-                          onClick={() => navigate(`/proyectos/${proyecto.id}`)}
+                          onClick={() => handleNavigateProyecto(proyecto.id)}
                           title="Planos"
                           id="VerPlanos"
                         >
