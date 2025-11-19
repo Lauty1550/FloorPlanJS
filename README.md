@@ -3,9 +3,12 @@
 
 El sistema permite gestionar organizaciones, administrar proyectos de construcción y manejar sus planos de forma centralizada.
 
+## Proyecto académico
+Este sistema forma parte del trabajo final de la materia **Ingeniería de Aplicaciones Web**, perteneciente a la **Universidad Nacional de la Plata (UNLP)**
+
 
 ## Demo del sistema
-![Demo de recorte de plano](public/demo.gif)
+![Demo de recorte de plano](public/Demo.gif)
 
 
 ## Características 
