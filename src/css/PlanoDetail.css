@@ -8,6 +8,12 @@
   position: relative;
 }
 
+@media (width <1000px) {
+  .image-plano {
+    max-width: 90%;
+  }
+}
+
 .image-plano {
   overflow: hidden;
   display: flex;
