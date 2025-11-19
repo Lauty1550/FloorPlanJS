@@ -1,34 +1,71 @@
 # [Floorplan Management System](https://floor-plan-management-system.vercel.app/home)
- **Administrador de planos para organizaciones estatales.**
- 
-El sistema permite gestionar distintas organizaciones, administrar proyectos
-de construcción y manejar sus respectivos planos de forma centralizada.
+**Administrador de planos para organizaciones estatales.**
 
-## Caracteristicas 
-- 🏢 **Organizaciones**: crear y administrar cada entidad.
-- 📂 **Proyectos**: gestión completa.
-- 🗺️ **Planos**: Subida, vista previa, recorte.
-- 👥 **Multi-tenant**: cada organizacion ve solo lo suyo.
+El sistema permite gestionar organizaciones, administrar proyectos de construcción y manejar sus planos de forma centralizada.
 
-## Tecnologías utilizadas
+
+## Demo del sistema
+![Demo de recorte de plano](public/demo.gif)
+
+
+## Características 
+- 🏢 **Organizaciones**: creación y administración.
+- 📂 **Proyectos**: gestión completa por entidad.
+- 🗺️ **Planos**: subida, vista previa y recorte.
+- 👥 **Multi-tenant**: cada organización accede solo a sus recursos.
+
+## 🛠️ Tecnologías utilizadas
 
 ### Frontend
-- React 19
-- Vite (entorno de desarrollo y build)
-- React Router DOM (navegación)
+- React 19  
+- React Router DOM  
 
 ### Estilos
-- Sass (SCSS)
-- Bootstrap 5
+- Sass (SCSS)  
+- Bootstrap 5  
 
 ### Manejo de planos
-- Cropper.js / react-cropper (recorte de imágenes)
-- react-zoom-pan-pinch (zoom y desplazamiento)
+- Cropper.js / react-cropper  
+- react-zoom-pan-pinch  
 
 ### Formularios
-- React Hook Form
+- React Hook Form  
 
 ### Notificaciones
-- React Toastify
+- React Toastify  
 
+---
+
+## 🏗️ Arquitectura del Proyecto
+
+El sistema se organiza según una arquitectura **Frontend + Backend + Base de datos**.
+
+### Frontend
+Aplicación SPA encargada de:
+- Renderizar vistas y navegación
+- Gestionar formularios
+- Visualización, recorte y zoom de planos  
+Comunicación con el backend vía API REST.
+
+---
+
+### Backend (NestJS)
+Backend desarrollado con **NestJS**, estructurado por módulos independientes.
+
+Componentes principales:
+- **Módulos** por dominio (`organizaciones`, `projectos`, `planos`)
+- **Controladores** para manejar endpoints REST
+- **Servicios** con la lógica de negocio
+- **Schemas** que definen la estructura de datos de cada colección
+
+Incluye validaciones, manejo de entidades y conexión a MongoDB.
+
+---
+
+### Base de Datos (MongoDB Atlas)
+Base documental donde se almacenan:
+- Organizaciones  
+- Proyectos  
+- Planos  
+- Metadatos de cada plano  
 
