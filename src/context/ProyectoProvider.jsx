@@ -8,7 +8,6 @@ export function ProyectoProvider({ children }) {
   const [proyectos, setProyectos] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const { isAuthenticated, user } = useContext(DemoAuthContext);
-  const [usuario, setUsuario] = useState();
   const [showProyectos, setShowProyectos] = useState(true);
   const [errorFetch, setErrorFetch] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -16,14 +15,14 @@ export function ProyectoProvider({ children }) {
 
   async function handleGetProyectos() {
     setIsloading(true);
-    if (!isAuthenticated || !user || !user.sub || !usuario) {
+    if (!isAuthenticated || !user || !user.sub || !user) {
       toast.error("Error al obtener proyectos");
       setIsloading(false);
       return;
     }
     try {
       const data = await proyectoService.obtenerProyectoPorOrganizacionId(
-        usuario.organizacionId
+        user.organizacionId
       );
       setProyectos(data);
       setShowProyectos(true);
@@ -45,8 +44,6 @@ export function ProyectoProvider({ children }) {
         isLoading,
         setIsloading,
         handleGetProyectos,
-        usuario,
-        setUsuario,
         showProyectos,
         errorFetch,
         setErrorFetch,

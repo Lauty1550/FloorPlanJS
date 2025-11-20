@@ -8,14 +8,15 @@ import NewProyecto from "../components/NewProyecto";
 import { useContext } from "react";
 import { ProyectoContext } from "../context/ProyectoContext";
 import useProyectos from "../hooks/useProyectos";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function ProyectoPage() {
-  const { isLoading, usuario, showProyectos, showForm } =
-    useContext(ProyectoContext);
+  const { isLoading, showProyectos, showForm } = useContext(ProyectoContext);
+  const { user } = useContext(DemoAuthContext);
 
   useProyectos();
 
-  if (!isLoading && usuario?.organizacionName === "Sin organizacion") {
+  if (!isLoading && user.organizacionName === "Sin organizacion") {
     return (
       <div className="no-organization">
         <h1>No perteneces a ninguna organización</h1>
@@ -33,7 +34,7 @@ export default function ProyectoPage() {
       >
         <h1 className="titulo-page mt-5 text-center">
           Proyectos de la organización{" "}
-          <span className="titulo-azul">{usuario?.organizacionName}</span>
+          <span className="titulo-azul">{user.organizacionName}</span>
         </h1>
 
         {showForm && <NewProyecto />}

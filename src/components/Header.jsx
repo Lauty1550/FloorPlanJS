@@ -1,9 +1,45 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Header.css";
+import { useContext, useEffect, useState } from "react";
+import { organizacionService } from "../service/OrganizacionService";
+import { DemoAuthContext } from "../context/DemoAuthContext";
 
 export default function Header() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(DemoAuthContext);
+  const [isLoading, setIsloading] = useState(true);
+  const [organizaciones, setOrganizaciones] = useState();
+
+  async function handleGetOrg() {
+    return await organizacionService.obtenerOrganizaciones();
+  }
+
+  function handleSelectOrg(orgId, orgName) {
+    setUser({ ...user, organizacionId: orgId, organizacionName: orgName });
+
+    localStorage.setItem("organizacionId", orgId);
+    localStorage.setItem("organizacionName", orgName);
+
+    navigate("/proyectos");
+  }
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const organizacionesAux = await handleGetOrg();
+        setOrganizaciones(organizacionesAux);
+        setIsloading(false);
+        // eslint-disable-next-line no-unused-vars
+      } catch (error) {
+        console.error("Error al obtener organizaciones");
+      }
+    };
+
+    fetch();
+  }, []);
+
   return (
     <nav
       className="header navbar bg-dark navbar-expand-lg  mb-5"
@@ -61,29 +97,33 @@ export default function Header() {
               </li>
             </ul>
 
-            {/* User dropdown
-            {isLoading ? (
-              <button className="btn btn-secondary bg-dark">Cargando...</button>
-            ) : isAuthenticated ? (
-              <div className="dropdown">
-                <button
-                  className="btn btn-secondary bg-dark dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  User Options
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    <LogoutButton />
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <LoginButton />
-            )} */}
+            <div className="dropdown">
+              <button
+                className="boton-drop btn btn-secondary bg-dark dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {user.organizacionName}
+              </button>
+              <ul className="boton-menu dropdown-menu">
+                {isLoading ? (
+                  <li>Cargando..</li>
+                ) : (
+                  organizaciones.map((organizacion) => (
+                    <li
+                      key={organizacion.id}
+                      onClick={() =>
+                        handleSelectOrg(organizacion.id, organizacion.nombre)
+                      }
+                    >
+                      {organizacion.nombre}
+                    </li>
+                  ))
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

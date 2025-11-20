@@ -6,14 +6,13 @@ import "../css/TitlePage.css";
 import SpinLoader from "../components/Loader";
 import { isAdmin } from "../functions/isAdmin";
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { DemoAuthContext } from "../context/DemoAuthContext";
 import { FiFolder, FiHome, FiUser, FiUsers } from "react-icons/fi";
 // import { userService } from "../service/UserService";
 
 export default function Home() {
-  const { isAuthenticated, isLoading, user, loginWithRedirect } =
-    useContext(DemoAuthContext);
+  const { isAuthenticated, isLoading, user } = useContext(DemoAuthContext);
 
   // const addUser = async () => {
   //   try {
@@ -35,13 +34,13 @@ export default function Home() {
   //   }
   // }, []);
 
-  useEffect(() => {
-    if (!isAuthenticated && !isLoading) {
-      loginWithRedirect({
-        login_hint: "demo@demo.com",
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!isAuthenticated && !isLoading) {
+  //     loginWithRedirect({
+  //       login_hint: "demo@demo.com",
+  //     });
+  //   }
+  // }, []);
 
   // console.log(import.meta.env);
 

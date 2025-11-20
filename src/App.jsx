@@ -24,87 +24,88 @@ import PlanoProvider from "./context/PlanoProvider";
 import DemoAuthProvider from "./context/DemoAuthProvider";
 import PlanoDetail from "./pages/PlanoDetail";
 import PlanoDetailProvider from "./context/PlanoDetailProvider";
+import { useContext } from "react";
+import { DemoAuthContext } from "./context/DemoAuthContext";
 
 export default function App() {
+  const { user } = useContext(DemoAuthContext);
   return (
     <Router>
-      <DemoAuthProvider>
-        <Header />
-        <PlanoProvider>
-          <main className="root">
-            <Routes>
-              <Route path="/" element={<Navigate to="/home" replace />} />
+      <Header />
+      <PlanoProvider>
+        <main className="root">
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
 
-              {/* Ruta catch-all para 404 */}
-              <Route path="*" element={<NotFound />} />
+            {/* Ruta catch-all para 404 */}
+            <Route path="*" element={<NotFound />} />
 
-              <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
 
-              <Route
-                path="/proyectos"
-                element={
-                  <ProtectedRoute>
-                    <ProyectoProvider>
-                      <ProyectoPage />
-                    </ProyectoProvider>
-                  </ProtectedRoute>
-                }
-              />
+            <Route
+              path="/proyectos"
+              element={
+                <ProtectedRoute>
+                  <ProyectoProvider>
+                    <ProyectoPage key={user.organizacionId} />
+                  </ProyectoProvider>
+                </ProtectedRoute>
+              }
+            />
 
-              <Route
-                path="/usuarios"
-                element={
-                  <ProtectedAdminRoute>
-                    <OrganizacionProvider>
-                      <Usuarios />
-                    </OrganizacionProvider>
-                  </ProtectedAdminRoute>
-                }
-              />
+            <Route
+              path="/usuarios"
+              element={
+                <ProtectedAdminRoute>
+                  <OrganizacionProvider>
+                    <Usuarios />
+                  </OrganizacionProvider>
+                </ProtectedAdminRoute>
+              }
+            />
 
-              <Route
-                path="/organizaciones"
-                element={
-                  <ProtectedAdminRoute>
-                    <OrganizacionProvider>
-                      <Organizaciones />
-                    </OrganizacionProvider>
-                  </ProtectedAdminRoute>
-                }
-              />
+            <Route
+              path="/organizaciones"
+              element={
+                <ProtectedAdminRoute>
+                  <OrganizacionProvider>
+                    <Organizaciones />
+                  </OrganizacionProvider>
+                </ProtectedAdminRoute>
+              }
+            />
 
-              <Route
-                path="/proyecto/:id/responsables"
-                element={
-                  <ProtectedRoute>
-                    <ProyectoTrabajadores />
-                  </ProtectedRoute>
-                }
-              />
+            <Route
+              path="/proyecto/:id/responsables"
+              element={
+                <ProtectedRoute>
+                  <ProyectoTrabajadores />
+                </ProtectedRoute>
+              }
+            />
 
-              <Route
-                path="/proyectos/:id"
-                element={
-                  <ProtectedRoute>
-                    <ProyectoDetail />
-                  </ProtectedRoute>
-                }
-              />
+            <Route
+              path="/proyectos/:id"
+              element={
+                <ProtectedRoute>
+                  <ProyectoDetail />
+                </ProtectedRoute>
+              }
+            />
 
-              <Route
-                path="/plano/:id"
-                element={
-                  <ProtectedRoute>
-                    <PlanoDetailProvider>
-                      <PlanoDetail />
-                    </PlanoDetailProvider>
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-          </main>
-        </PlanoProvider>
-      </DemoAuthProvider>
+            <Route
+              path="/plano/:id"
+              element={
+                <ProtectedRoute>
+                  <PlanoDetailProvider>
+                    <PlanoDetail />
+                  </PlanoDetailProvider>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </main>
+      </PlanoProvider>
     </Router>
   );
 }

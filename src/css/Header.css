@@ -32,3 +32,19 @@ header .navbar-toggler-icon {
 .drawer {
   background: #0d1429 !important;
 }
+
+.boton-drop {
+  width: 170px;
+}
+
+.boton-menu {
+  padding: 4px;
+}
+
+.boton-menu li {
+  margin-bottom: 2px;
+}
+
+.boton-menu li:hover {
+  background-color: black;
+}
