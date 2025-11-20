@@ -97,7 +97,7 @@ export default function Header() {
               </li>
             </ul>
 
-            <div className="dropdown">
+            <div className="div-drop dropdown">
               <button
                 className="boton-drop btn btn-secondary bg-dark dropdown-toggle"
                 type="button"

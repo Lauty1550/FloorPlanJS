@@ -48,3 +48,9 @@ header .navbar-toggler-icon {
 .boton-menu li:hover {
   background-color: black;
 }
+
+.div-drop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

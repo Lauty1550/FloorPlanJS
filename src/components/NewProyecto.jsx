@@ -7,15 +7,15 @@ import { TipoObra } from "../const/TipoObra";
 import { TipoDestino } from "../const/TipoDestino";
 
 export default function NewProyecto() {
+  const { proyectoSeleccionadoEdit } = useContext(ProyectoContext);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isDirty },
+  } = useForm({ defaultValues: proyectoSeleccionadoEdit || {} });
 
   const { handleCloseForm, onSubmit } = useNewProyecto({ reset });
-  const { proyectoSeleccionadoEdit } = useContext(ProyectoContext);
 
   return (
     <main
@@ -212,6 +212,7 @@ export default function NewProyecto() {
                   onClick={() => {}}
                   text={proyectoSeleccionadoEdit ? "Editar" : "Agregar"}
                   type="submit"
+                  disabled={proyectoSeleccionadoEdit && !isDirty}
                 />
               </div>
             </form>

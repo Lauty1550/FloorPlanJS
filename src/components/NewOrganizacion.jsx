@@ -10,8 +10,8 @@ export default function NewOrganizacion({ organizacion, onClose, onUpdate }) {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isDirty },
+  } = useForm({ defaultValues: organizacion || {} });
 
   useEffect(() => {
     if (organizacion) {
@@ -230,6 +230,7 @@ export default function NewOrganizacion({ organizacion, onClose, onUpdate }) {
                       onClick={() => {}}
                       type="submit"
                       text={organizacion ? "Editar" : "Agregar"}
+                      disabled={organizacion && !isDirty}
                     />
                   </div>
                 </div>
