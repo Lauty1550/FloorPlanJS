@@ -8,7 +8,7 @@ Este sistema forma parte del trabajo final de la materia **Ingeniería de Aplica
 
 
 ## Demo del sistema
-![Demo de recorte de plano](public/Demo.gif)
+![Demo de recorte de plano](https://github.com/Lauty1550/Floorplan-Management-System/releases/download/V.1.0/Demo.gif)
 
 
 ## Características 
