@@ -3,19 +3,25 @@
 
 El sistema permite gestionar organizaciones, administrar proyectos de construcción y manejar sus planos de forma centralizada.
 
-## Proyecto académico
-Este sistema forma parte del trabajo final de la materia **Ingeniería de Aplicaciones Web**, perteneciente a la **Universidad Nacional de la Plata (UNLP)**
+## 🎓 Proyecto académico
+Este sistema forma parte del trabajo final de la materia **Ingeniería de Aplicaciones Web**, perteneciente a la **Universidad Nacional de La Plata (UNLP)**
+
+## 🎯 Motivación
+
+Las organizaciones estatales manejan gran cantidad de planos en formatos variados.
+Este sistema centraliza su gestión, permite recortarlos rápidamente y facilita el trabajo
+de relevamiento y documentación de obras.
 
 
-## Demo del sistema
+## 🎬 Demo del sistema
 ![Demo de recorte de plano](https://github.com/Lauty1550/Floorplan-Management-System/releases/download/V.1.0/Demo.gif)
 
 
-## Características 
-- 🏢 **Organizaciones**: creación y administración.
-- 📂 **Proyectos**: gestión completa por entidad.
-- 🗺️ **Planos**: subida, vista previa y recorte.
-- 👥 **Multi-tenant**: cada organización accede solo a sus recursos.
+## ✨ Características 
+- **Organizaciones**: creación y administración.
+- **Proyectos**: gestión completa por entidad.
+- **Planos**: subida, vista previa y recorte.
+- **Multi-tenant**: cada organización accede solo a sus recursos.
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -56,7 +62,7 @@ Comunicación con el backend vía API REST.
 Backend desarrollado con **NestJS**, estructurado por módulos independientes.
 
 Componentes principales:
-- **Módulos** por dominio (`organizaciones`, `projectos`, `planos`)
+- **Módulos** por dominio (`organizaciones`, `proyectos`, `planos`)
 - **Controladores** para manejar endpoints REST
 - **Servicios** con la lógica de negocio
 - **Schemas** que definen la estructura de datos de cada colección
@@ -72,3 +78,6 @@ Base documental donde se almacenan:
 - Planos  
 - Metadatos de cada plano  
 
+---
+## 📄 Licencia
+Este proyecto se distribuye bajo la licencia **MIT**.
