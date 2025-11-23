@@ -41,12 +41,19 @@ header .navbar-toggler-icon {
   padding: 4px;
 }
 
+.boton-drop,
+.boton-menu {
+  background-color: #1e293b !important;
+}
+
 .boton-menu li {
   margin-bottom: 2px;
+  user-select: none;
+  cursor: pointer;
 }
 
 .boton-menu li:hover {
-  background-color: black;
+  background-color: #0a1424;
 }
 
 .div-drop {
